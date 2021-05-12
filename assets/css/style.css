@@ -1,0 +1,46 @@
+   html,
+   body {
+       margin: 0;
+       font-size: 100%;
+       font-family: 'Poppins', sans-serif;
+       background: #fff;
+   }
+
+   body a {
+       text-decoration: none;
+       transition: 0.5s all;
+       -webkit-transition: 0.5s all;
+       -moz-transition: 0.5s all;
+       -o-transition: 0.5s all;
+       -ms-transition: 0.5s all;
+   }
+
+   a:hover {
+       text-decoration: none;
+   }
+
+
+
+   p {
+       margin: 0;
+       font-size: 0.9em;
+       color: #777777;
+       line-height: 2em;
+       letter-spacing: 1px;
+       font-weight: 300;
+   }
+
+
+   /************* navbar *************/
+   .nav-link {
+       margin: 0 2px;
+   }
+
+   .dropdown-item:hover,
+   .nav-item:hover,
+   .nav-item:focus,
+   .nav-link:hover,
+   .nav-link:focus {
+       color: #fff;
+       background: #01cd74;
+   }
