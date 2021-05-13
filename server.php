@@ -76,10 +76,25 @@ function get_kadegoirt($table,$table1)
             }
             //shfaq
             echo '<li class="list-group-item d-flex justify-content-between align-items-center">
-			' . $kategorit['name'] . '
+			' . $kategorit['emri'] . '
 			<span class="badge badge-success badge-pill">' . $rowcountkategorit . '</span>
 			</li>';
         } 
+    }
+
+    mysqli_close($db);
+}
+
+function get_kadegoirt_menu($table)
+{
+    require("database/config.php");
+    $sql = "SELECT * FROM $table ";
+    if ($result = mysqli_query($db, $sql)) {
+
+        foreach ($result as $get_kadegoirt_menu1 => $kategori_memu) {
+            echo '<a class="dropdown-item" href="category.php?id=' . $kategori_memu['id'] . '">' . $kategori_memu['emri'] . '</a>
+			<div class="dropdown-divider"></div>';
+        }
     }
 
     mysqli_close($db);
