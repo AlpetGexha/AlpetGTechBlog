@@ -3,7 +3,7 @@
 function get_header($title_bar)
 {
     include "assets/php/head.php";
-    echo " <br> <title>$title_bar</title></head>";
+    echo " <br><title>$title_bar</title></head>";
     include "assets/php/header.php";
 }
 
@@ -26,13 +26,13 @@ function get_post($table)
             # code...
             echo 'Nuk ka Poste "width:350px;height:250px'; 
         }
-        //if there are rows available display all the results
+        //if there are rows available display all the resultss
         foreach ($result as $bloggrid => $postitem) {
             # code...
             echo '
                 <div class="col-md-6">
                     <div class="b-grid-top">
-                        <div class="card" style="width: 18rem;">
+                        <div class="card mt-3" style="width: 18rem;">
                             <a href="postim.php?id=' . $postitem['id'] . '">
                                 <img src="assets/img/' . $postitem['photo'] . '" class="card-img-top" alt="Foto">
                             </a>
@@ -77,7 +77,7 @@ function get_kadegoirt($table,$table1)
             //shfaq
             echo '<li class="list-group-item d-flex justify-content-between align-items-center">
 			' . $kategorit['name'] . '
-			<span class="badge badge-success badge-pill">' . $rowcountkategorit . '</span>
+			<span sclass="badge badge-success badge-pill">' . $rowcountkategorit . '</span>
 			</li>';
         }
     }
@@ -85,8 +85,3 @@ function get_kadegoirt($table,$table1)
     mysqli_close($db);
 }
 ?>
-
-
-<body>
-
-</body>
