@@ -1,4 +1,5 @@
 <?php
+
 //headeri
 function get_header($title_bar)
 {
@@ -12,6 +13,12 @@ function get_header($title_bar)
 function get_footer()
 {
     include "assets/php/footer.php";
+}
+
+//footer
+function get_widget()
+{
+    include "assets/php/widget.php";
 }
 
 function get_post($table)

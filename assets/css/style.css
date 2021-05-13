@@ -48,9 +48,6 @@
        background: #01cd74 !important;
    }
 
-   .bg-light {
-       background-color: #f0f3f1 !important;
-   }
 
 
   /************* Social *************/
@@ -132,3 +129,9 @@
    .tech-btm {
        margin-bottom: 2em;
    }
+
+/**/
+
+.single_post p{
+    text-align: center;
+}
