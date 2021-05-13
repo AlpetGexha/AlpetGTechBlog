@@ -34,6 +34,14 @@
        color: #01cd74;
    }
 
+   h3.tittle {
+       text-align: center;
+       font-size: 40px;
+       color: #2c363e;
+       text-shadow: 0 1px 2px rgba(0, 0, 0, 0.37);
+       font-weight: 600;
+   }
+
    /************* navbar *************/
    .nav-link {
        margin: 0 2px;
@@ -50,7 +58,7 @@
 
 
 
-  /************* Social *************/
+   /************* Social *************/
    .widget_social li {
        display: block;
    }
@@ -100,7 +108,7 @@
        padding-left: 90px;
    }
 
-   .widget_social li a:hover{
+   .widget_social li a:hover {
        text-decoration: none;
    }
 
@@ -130,8 +138,96 @@
        margin-bottom: 2em;
    }
 
-/**/
+   /************* Single Post *************/
+   .single_post {
+       border: 1px solid #ddd;
+       border-radius: 3px;
+       padding-bottom: 3em;
+       padding: 5px;
 
-.single_post p{
-    text-align: center;
-}
+   }
+
+   .single_post h1 {
+       font-size: 29.2px;
+       margin: 19.2px 0 16px 0;
+       font-weight: 700;
+       text-align: center;
+   }
+
+   .single_post p {
+       font-family: 'Open Sans', Arial, sans-serif;
+       margin-bottom: 16px;
+
+   }
+
+
+    .single_post_info {
+        position: relative;
+        overflow: hidden;
+    }
+
+    .single_post_info_show ul li a {
+        font-size: 0.9em;
+        letter-spacing: 1px;
+        color: #fff;
+    }
+
+    .single_post_info_show ul li a:hover {
+        color: #01cd74;
+        opacity: 0.9;
+        text-decoration: none;
+    }
+
+    .single_post_info_show {
+        width: 100%;
+        background: rgba(14, 15, 16, 0.65);
+        padding: 18px;
+        position: absolute;
+        bottom: 0;
+    }
+
+
+
+
+   @media(max-width:640px) {
+
+       .single_post h1 {
+           font-size: 19.6px;
+       }
+
+       h3.tittle {
+           font-size: 34px;
+       }
+
+       .single_post_info_show ul li a {
+           font-size: 0.8em;
+           letter-spacing: 1px;
+       }
+
+   }
+
+   @media(max-width:430px) {
+       .single_post img {
+           max-height: 300px;
+       }
+
+   }
+
+
+   @media(max-width:384px) {
+
+       h3.tittle {
+           font-size: 28.8px;
+       }
+   }
+
+   @media(max-width:330px) {
+       .single_post img {
+           max-height: 250px;
+       }
+
+       h3.tittle {
+           font-size: 25.6px;
+       }
+
+   }
