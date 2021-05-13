@@ -41,6 +41,10 @@
    .nav-item:focus,
    .nav-link:hover,
    .nav-link:focus {
-       color: #fff;
-       background: #01cd74;
+       color: #fff !important;
+       background: #01cd74 !important;
+   }
+
+   .bg-light {
+       background-color: #f0f3f1 !important;
    }
