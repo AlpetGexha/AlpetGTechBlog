@@ -30,6 +30,9 @@
        font-weight: 300;
    }
 
+   .far {
+       color: #01cd74;
+   }
 
    /************* navbar *************/
    .nav-link {
@@ -47,4 +50,85 @@
 
    .bg-light {
        background-color: #f0f3f1 !important;
+   }
+
+
+  /************* Social *************/
+   .widget_social li {
+       display: block;
+   }
+
+   .widget_social li a {
+       color: #fff;
+       display: inline-block;
+       font-size: 13px;
+       font-weight: 400;
+       letter-spacing: 0.2px;
+       line-height: 30px;
+       margin-bottom: 10px;
+       padding: 10px 20px;
+       text-transform: capitalize;
+       width: 100%;
+   }
+
+   .widget_social li a:hover {
+       opacity: 0.7;
+       color: #fff;
+   }
+
+   .widget_social li a.twitter {
+       background: #57baf7;
+   }
+
+   .widget_social li a.facebook {
+       background: #3b5998;
+   }
+
+   .widget_social li a.instagram {
+       background: #ea4c89;
+   }
+
+   .widget_social li a.github {
+       background: #24292e;
+   }
+
+   .widget_social li a i {
+       font-size: 18px;
+       position: relative;
+       text-align: left;
+       width: 35px;
+   }
+
+   .widget_social li a .count {
+       padding-left: 90px;
+   }
+
+   .widget_social li a:hover{
+       text-decoration: none;
+   }
+
+   .tech-btm h5 {
+       font-size: 0.9em;
+       line-height: 1.4em;
+       font-weight: 600;
+   }
+
+   .tech-btm h5 a {
+       color: #333;
+   }
+
+   .tech-btm img {
+       background: #ebecec;
+       padding: .4em;
+   }
+
+   .tech-btm h4 {
+       font-size: 1.2em;
+       color: #333333;
+       font-weight: 700;
+       margin-bottom: 1em;
+   }
+
+   .tech-btm {
+       margin-bottom: 2em;
    }

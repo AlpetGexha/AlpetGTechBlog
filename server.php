@@ -3,7 +3,7 @@
 function get_header($title_bar)
 {
     include "assets/php/head.php";
-    echo " <br><title>$title_bar</title></head>";
+    echo "<title>$title_bar</title></head>";
     include "assets/php/header.php";
 }
 
@@ -77,9 +77,9 @@ function get_kadegoirt($table,$table1)
             //shfaq
             echo '<li class="list-group-item d-flex justify-content-between align-items-center">
 			' . $kategorit['name'] . '
-			<span sclass="badge badge-success badge-pill">' . $rowcountkategorit . '</span>
+			<span class="badge badge-success badge-pill">' . $rowcountkategorit . '</span>
 			</li>';
-        }
+        } 
     }
 
     mysqli_close($db);
