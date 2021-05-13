@@ -46,6 +46,8 @@ function get_post($table)
                             <div class="card-body">
                             <i class="far fa-clock"></i>'. date('j F, Y ', strtotime($postitem['date']))  .'
                                 <h5 class="card-title"><a href="postim.php?id=' . $postitem['id'] . '">' . $postitem['titulli'] . '</a></h5>
+                                <a" href="postim.php?id=' . $postitem['id'] . '"><p> ' . $postitem['body'] . ' </p></a>
+                                
                                     <a class="btn btn-success" href="postim.php?id=' . $postitem['id'] . '">Meso m&euml; Shum&euml;</a>
                             </div>
                         </div>

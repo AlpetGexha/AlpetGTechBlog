@@ -42,6 +42,25 @@
        font-weight: 600;
    }
 
+   /************* Home *************/
+   .card-title a {
+       text-decoration: none;
+       color: black;
+   }
+
+   .card-body p {
+       overflow: hidden;
+       text-overflow: ellipsis;
+       display: -webkit-box;
+       -webkit-line-clamp: 3;
+       -webkit-box-orient: vertical;
+   }
+
+   .card-body p:hover,
+   .card-title a:hover {
+       color: #01cd74;
+   }
+
    /************* navbar *************/
    .nav-link {
        margin: 0 2px;
@@ -161,36 +180,34 @@
    }
 
 
-    .single_post_info {
-        position: relative;
-        overflow: hidden;
-    }
+   .single_post_info {
+       position: relative;
+       overflow: hidden;
+   }
 
-    .single_post_info_show ul{
-        list-style-type: none;
-    }
+   .single_post_info_show ul {
+       list-style-type: none;
+   }
 
-    .single_post_info_show ul li a {
-        font-size: 0.9em;
-        letter-spacing: 1px;
-        color: #fff;
-    }
+   .single_post_info_show ul li a {
+       font-size: 0.9em;
+       letter-spacing: 1px;
+       color: #fff;
+   }
 
-    .single_post_info_show ul li a:hover {
-        color: #01cd74;
-        opacity: 0.9;
-        text-decoration: none;
-    }
+   .single_post_info_show ul li a:hover {
+       color: #01cd74;
+       opacity: 0.9;
+       text-decoration: none;
+   }
 
-    .single_post_info_show {
-        width: 100%;
-        background: rgba(14, 15, 16, 0.65);
-        padding: 18px;
-        position: absolute;
-        bottom: 0;
-    }
-
-
+   .single_post_info_show {
+       width: 100%;
+       background: rgba(14, 15, 16, 0.65);
+       padding: 18px;
+       position: absolute;
+       bottom: 0;
+   }
 
 
    @media(max-width:640px) {
