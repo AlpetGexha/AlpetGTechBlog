@@ -166,6 +166,10 @@
         overflow: hidden;
     }
 
+    .single_post_info_show ul{
+        list-style-type: none;
+    }
+
     .single_post_info_show ul li a {
         font-size: 0.9em;
         letter-spacing: 1px;

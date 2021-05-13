@@ -9,9 +9,7 @@
                 </div>
             </div>
         </div>
-
         <?php get_widget(); ?>
-        
     </div>
 </div>
 
