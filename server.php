@@ -15,11 +15,12 @@ function get_footer()
     include "assets/php/footer.php";
 }
 
-//footer
+//widget
 function get_widget()
 {
     include "assets/php/widget.php";
 }
+
 
 function get_post($table)
 {
@@ -38,7 +39,7 @@ function get_post($table)
             # code...
             echo '
                 <div class="col-md-6">
-                    <div class="b-grid-top">
+                    <div class="">
                         <div class="card mt-3" style="width: 18rem;">
                             <a href="postim.php?id=' . $postitem['id'] . '">
                                 <img src="assets/img/' . $postitem['photo'] . '" class="card-img-top" alt="Foto">
@@ -94,6 +95,8 @@ function get_kadegoirt($table,$table1)
     mysqli_close($db);
 }
 
+
+
 function get_kadegoirt_menu($table)
 {
     require("database/config.php");
@@ -108,4 +111,43 @@ function get_kadegoirt_menu($table)
 
     mysqli_close($db);
 }
-?>
+
+
+
+function get_kategori_post($table, $id)
+{
+    require("database/config.php");
+    $sql = "SELECT * FROM $table WHERE category='$id' ORDER BY id DESC";
+    if ($result = mysqli_query($db, $sql)) {
+        //count number of rows in query result
+        $rowcount = mysqli_num_rows($result);
+        //if no rows returned show no news alert
+        if ($rowcount == 0) {
+            # code...
+            echo 'No Blogs To Fetch';
+        }
+        //if there are rows available display all the results
+        foreach ($result as $categories => $k_post) {
+            # code...
+            echo '
+                <div class="col-md-6">
+                    <div class="">
+                        <div class="card mt-3" style="width: 18rem;">
+                            <a href="postim.php?id=' . $k_post['id'] . '">
+                                <img src="assets/img/' . $k_post['photo'] . '" class="card-img-top" alt="Foto">
+                            </a>
+                            <div class="card-body">
+                            <i class="far fa-clock"></i>' . date('j F, Y ', strtotime($k_post['date']))  . '
+                                <h5 class="card-title"><a href="postim.php?id=' . $k_post['id'] . '">' . $k_post['titulli'] . '</a></h5>
+                                <a" href="postim.php?id=' . $k_post['id'] . '"><p> ' . $k_post['body'] . ' </p></a>
+                                    <a class="btn btn-success" href="postim.php?id=' . $k_post['id'] . '">Meso m&euml; Shum&euml;</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            ';
+        }
+    }
+
+    mysqli_close($db);
+}
