@@ -75,7 +75,9 @@
        background: #01cd74 !important;
    }
 
-
+   .bg-light {
+       background-color: #f0f3f1 !important;
+   }
 
    /************* Social *************/
    .widget_social li {
@@ -207,6 +209,19 @@
        padding: 18px;
        position: absolute;
        bottom: 0;
+   }
+
+   .breadcrumb-item li {
+       font-size: 14.4px;
+       letter-spacing: 1px;
+   }
+
+   .breadcrumb-item li a {
+       color: #333;
+   }
+
+   .breadcrumb-item.active {
+       color: #01cd74;
    }
 
 
