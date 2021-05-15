@@ -11,7 +11,7 @@ $row = $result->fetch_assoc();
     <li class="breadcrumb-item">
         <a href="index.php">Home</a>
     </li>
-    <li class="breadcrumb-item active"><?php echo "".$row['titulli'].""; ?></li>
+    <li class="breadcrumb-item active"><?php echo "" . $row['titulli'] . ""; ?></li>
 </ol>
 
 
@@ -42,5 +42,5 @@ $row = $result->fetch_assoc();
         <?php get_widget(); ?>
 
     </div>
-
-    <?php get_footer(); ?>
+</div>
+<?php get_footer(); ?>
