@@ -7,6 +7,12 @@ $result = mysqli_query($db, $sql);
 $row = $result->fetch_assoc();
 ?>
 <?php get_header("" . $row['titulli'] . " - AlpetG Tech Blog "); ?>
+<ol class="breadcrumb">
+    <li class="breadcrumb-item">
+        <a href="index.php">Home</a>
+    </li>
+    <li class="breadcrumb-item active"><?php echo "".$row['titulli'].""; ?></li>
+</ol>
 
 
 <div class="container mt-5">
@@ -37,4 +43,4 @@ $row = $result->fetch_assoc();
 
     </div>
 
-<?php get_footer(); ?>
+    <?php get_footer(); ?>
