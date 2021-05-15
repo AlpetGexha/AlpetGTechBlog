@@ -42,6 +42,12 @@
        font-weight: 600;
    }
 
+
+    .null_post{
+        text-align: center;
+        color: red;
+    }
+
    /************* Home *************/
    .card-title a {
        text-decoration: none;
@@ -79,7 +85,7 @@
        background-color: #f0f3f1 !important;
    }
 
-  /************* breadcrumb *************/
+   /************* breadcrumb *************/
    .breadcrumb-item li {
        font-size: 14.4px;
        letter-spacing: 1px;
@@ -91,6 +97,17 @@
 
    .breadcrumb-item.active {
        color: #01cd74;
+   }
+
+   /************* footer *************/
+   footer {
+       width: 100%;
+       height: auto;
+       padding: 30px;
+       background-color: #e9ecef;
+       color: #01cd74;
+       text-align: center;
+       margin-top: 20px;
    }
 
    /************* Social *************/
