@@ -3,11 +3,10 @@
 //headeri
 function get_header($title_bar)
 {
-    include "assets/php/head.php";
-    echo "<title>$title_bar</title></head>";
-    include "assets/php/header.php";
+    include "assets/php/head.php";//linkat
+    echo "<title>$title_bar</title></head>";//tilulli per tab 
+    include "assets/php/header.php";//headeri ,navbari
 }
-
 
 //footer
 function get_footer()
@@ -18,10 +17,61 @@ function get_footer()
 //widget
 function get_widget()
 {
+    //kategorit dhe rrjetet sociale
     include "assets/php/widget.php";
 }
 
+//kategorit per navbar
+function get_kadegoirt_menu($table)
+{
+    require("database/config.php");
+    $sql = "SELECT * FROM $table ";
+    if ($result = mysqli_query($db, $sql)) {
 
+        foreach ($result as $get_kadegoirt_menu1 => $kategori_memu) {
+            echo '<a class="dropdown-item" href="category.php?id=' . $kategori_memu['id'] . '">' . $kategori_memu['emri'] . '</a>
+			<div class="dropdown-divider"></div>';
+        }
+    }
+
+    mysqli_close($db);
+}
+
+
+//lista e kategorive (widget)
+function get_kadegoirt($table, $table1)
+{
+    require("database/config.php");
+    $sql = "SELECT * FROM $table";
+    if ($result = mysqli_query($db, $sql)) {
+        //Nese nuk ka kategori  
+        $rowcount = mysqli_num_rows($result);
+        if ($rowcount == 0) {
+            echo '<p class="null_result">Nuk ka kategori</p';
+        }
+
+        foreach ($result as $get_kadegoirt1 => $kategorit) {
+            // sa herë secila kategori shfaqet në poste
+            $categoryid = $kategorit['id'];
+            $sql = "SELECT * FROM $table1 WHERE category='$categoryid'";
+            if ($result = mysqli_query($db, $sql)) {
+                //numero kategorit
+                $rowcountkategorit = mysqli_num_rows($result);
+                $getcatcount = $rowcountkategorit;
+            }
+            //shfaq
+            echo '<li class="list-group-item d-flex justify-content-between align-items-center">
+			' . $kategorit['emri'] . '
+			<span class="badge badge-success badge-pill">' . $rowcountkategorit . '</span>
+			</li>';
+        }
+    }
+
+    mysqli_close($db);
+}
+
+
+//trego te gjitha postimet(index.php)
 function get_post($table)
 {
     require("database/config.php");
@@ -31,12 +81,9 @@ function get_post($table)
         $rowcount = mysqli_num_rows($result);
 
         if ($rowcount == 0) {
-            # code...
             echo 'Nuk ka Poste "width:350px;height:250px'; 
         }
-        //if there are rows available display all the resultss
         foreach ($result as $bloggrid => $postitem) {
-            # code...
             echo '
                 <div class="col-md-6">
                     <div class="">
@@ -63,57 +110,7 @@ function get_post($table)
 }
 
 
-
-function get_kadegoirt($table,$table1)
-{
-    require("database/config.php");
-    $sql = "SELECT * FROM $table";
-    if ($result = mysqli_query($db, $sql)) {
-       //Nese nuk ka kategori  
-        $rowcount = mysqli_num_rows($result);
-        if ($rowcount == 0) {
-            echo '<p class="null_result">Nuk ka kategori</p';
-        }
-
-        foreach ($result as $categoriescount => $kategorit) {
-            // sa herë secila kategori shfaqet në poste
-            $categoryid = $kategorit['id'];
-            $sql = "SELECT * FROM $table1 WHERE category='$categoryid'";
-            if ($result = mysqli_query($db, $sql)) {
-                //numero kategorit
-                $rowcountkategorit = mysqli_num_rows($result);
-                $getcatcount = $rowcountkategorit;
-            }
-            //shfaq
-            echo '<li class="list-group-item d-flex justify-content-between align-items-center">
-			' . $kategorit['emri'] . '
-			<span class="badge badge-success badge-pill">' . $rowcountkategorit . '</span>
-			</li>';
-        } 
-    }
-
-    mysqli_close($db);
-}
-
-
-
-function get_kadegoirt_menu($table)
-{
-    require("database/config.php");
-    $sql = "SELECT * FROM $table ";
-    if ($result = mysqli_query($db, $sql)) {
-
-        foreach ($result as $get_kadegoirt_menu1 => $kategori_memu) {
-            echo '<a class="dropdown-item" href="category.php?id=' . $kategori_memu['id'] . '">' . $kategori_memu['emri'] . '</a>
-			<div class="dropdown-divider"></div>';
-        }
-    }
-
-    mysqli_close($db);
-}
-
-
-
+//trego te gjitha postimet ne kategorin e caktuar(category.php)
 function get_kategori_post($table, $id)
 {
     require("database/config.php");
@@ -146,3 +143,5 @@ function get_kategori_post($table, $id)
 
     mysqli_close($db);
 }
+
+?>
