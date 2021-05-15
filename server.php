@@ -72,7 +72,7 @@ function get_kadegoirt($table,$table1)
        //Nese nuk ka kategori  
         $rowcount = mysqli_num_rows($result);
         if ($rowcount == 0) {
-            echo 'Nuk ka kategori';
+            echo '<p class="null_result">Nuk ka kategori</p';
         }
 
         foreach ($result as $categoriescount => $kategorit) {
@@ -121,7 +121,7 @@ function get_kategori_post($table, $id)
     if ($result = mysqli_query($db, $sql)) {
         $rowcount = mysqli_num_rows($result);
         if ($rowcount == 0) {
-            echo 'Nuk ka postime per kete kategori';
+            echo '<p class="null_result"> Nuk ka postime p&euml;r k&euml;t&euml; kategori</p>';
         }
         foreach ($result as $categories => $k_post) {
             echo '

@@ -43,10 +43,11 @@
    }
 
 
-    .null_post{
-        text-align: center;
-        color: red;
-    }
+   .null_result {
+       text-align: center;
+       color: red;
+       margin-top: 12px;
+   }
 
    /************* Home *************/
    .card-title a {
@@ -86,16 +87,16 @@
    }
 
    /************* breadcrumb *************/
-   .breadcrumb-item li {
+   .breadcrumb .breadcrumb-item li {
        font-size: 14.4px;
        letter-spacing: 1px;
    }
 
-   .breadcrumb-item li a {
+   .breadcrumb .breadcrumb-item li a {
        color: #333;
    }
 
-   .breadcrumb-item.active {
+   .breadcrumb.breadcrumb-item.active {
        color: #01cd74;
    }
 
@@ -107,7 +108,7 @@
        background-color: #e9ecef;
        color: #01cd74;
        text-align: center;
-       margin-top: 20px;
+       margin-top: 25px;
    }
 
    /************* Social *************/
