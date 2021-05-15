@@ -119,16 +119,11 @@ function get_kategori_post($table, $id)
     require("database/config.php");
     $sql = "SELECT * FROM $table WHERE category='$id' ORDER BY id DESC";
     if ($result = mysqli_query($db, $sql)) {
-        //count number of rows in query result
         $rowcount = mysqli_num_rows($result);
-        //if no rows returned show no news alert
         if ($rowcount == 0) {
-            # code...
-            echo 'No Blogs To Fetch';
+            echo 'Nuk ka postime per kete kategori';
         }
-        //if there are rows available display all the results
         foreach ($result as $categories => $k_post) {
-            # code...
             echo '
                 <div class="col-md-6">
                     <div class="">
