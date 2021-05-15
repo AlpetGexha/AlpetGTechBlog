@@ -1,7 +1,8 @@
 <?php
 include "server.php";
 include "database/config.php";
-$sql = "SELECT * from post";
+$id = $_REQUEST['id'];
+$sql = "SELECT * from post where id='$id'";
 $result = mysqli_query($db, $sql);
 $row = $result->fetch_assoc();
 ?>
@@ -35,7 +36,5 @@ $row = $result->fetch_assoc();
         <?php get_widget(); ?>
 
     </div>
-</div>
-
 
 <?php get_footer(); ?>
