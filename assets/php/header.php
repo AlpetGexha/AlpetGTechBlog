@@ -42,7 +42,7 @@
                         </div>
 
                     <li class="nav-item">
-                        <a class="nav-link" href="index.php">Rreth nesh</a>
+                        <a class="nav-link" href="about.php">Rreth nesh</a>
                     </li>
 
                     <li class="nav-item">
