@@ -60,8 +60,10 @@ function get_kadegoirt($table, $table1)
                 $getcatcount = $rowcountkategorit;
             }
             //shfaq
-            echo '<li class="list-group-item d-flex justify-content-between align-items-center">
-			' . $kategorit['emri'] . '
+            echo '
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+            <a href="category.php?id=' . $kategorit['id'] . '">' . $kategorit['emri'] . '</a>
+            
 			<span class="badge badge-success badge-pill">' . $rowcountkategorit . '</span>
 			</li>';
         }

@@ -104,6 +104,14 @@
        color: #01cd74 !important;
    }
 
+   .list-group-item a {
+       color: black;
+   }
+
+   .list-group-item a:hover{
+       color: #01cd74;
+   }
+
    /************* footer *************/
    footer {
        width: 100%;
