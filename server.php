@@ -93,6 +93,7 @@ function get_post($table)
                             </a>
                             <div class="card-body">
                             <i class="far fa-clock"></i>'. date('j F, Y ', strtotime($postitem['date']))  .'
+                            <i class="far fa-eye fa-x2"></i> '. $postitem['views'] .'
                                 <h5 class="card-title"><a href="postim.php?id=' . $postitem['id'] . '">' . $postitem['titulli'] . '</a></h5>
                                 <a" href="postim.php?id=' . $postitem['id'] . '"><p> ' . $postitem['body'] . ' </p></a>
                                 

@@ -32,8 +32,9 @@ $row = $result->fetch_assoc();
                         <ul>
                             <li>
                                 <a href="#">
-                                    <i class="far fa-calendar-alt"></i><?php echo  date('j F, Y ', strtotime($row['date'])) ?>
-                                <i class="far fa-eye fa-x2"></i><?php echo $row['views']; ?></a>
+                                <i class="far fa-calendar-alt"></i><?php echo  date('j F, Y ', strtotime($row['date'])) ?>
+                                <i class="far fa-eye fa-x2"></i><?php echo $row['views']; ?>
+                            </a>
                             </li>
 
                         </ul>
