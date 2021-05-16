@@ -131,6 +131,7 @@ function get_kategori_post($table, $id)
                             </a>
                             <div class="card-body">
                             <i class="far fa-clock"></i>' . date('j F, Y ', strtotime($k_post['date']))  . '
+                            <i class="far fa-eye fa-x2"></i> ' . $k_post['views'] . '
                                 <h5 class="card-title"><a href="postim.php?id=' . $k_post['id'] . '">' . $k_post['titulli'] . '</a></h5>
                                 <a" href="postim.php?id=' . $k_post['id'] . '"><p> ' . $k_post['body'] . ' </p></a>
                                     <a class="btn btn-success" href="postim.php?id=' . $k_post['id'] . '">Meso m&euml; Shum&euml;</a>

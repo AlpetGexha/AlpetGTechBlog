@@ -88,16 +88,20 @@
 
    /************* breadcrumb *************/
    .breadcrumb .breadcrumb-item li {
-       font-size: 14.4px;
-       letter-spacing: 1px;
+       font-size: 14.4px !important;
+       letter-spacing: 1px !important;
    }
 
    .breadcrumb .breadcrumb-item li a {
-       color: #333;
+       color: #333 !important;
    }
 
    .breadcrumb.breadcrumb-item.active {
-       color: #01cd74;
+       color: #01cd74 !important;
+   }
+
+   .breadcrumb .breadcrumb-item li a:hover {
+       color: #01cd74 !important;
    }
 
    /************* footer *************/

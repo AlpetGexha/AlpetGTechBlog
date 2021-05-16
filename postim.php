@@ -10,18 +10,24 @@ $sql = "SELECT * from post where id='$id'";
 $result = mysqli_query($db, $sql);
 $row = $result->fetch_assoc();
 
+$c_sql = "SELECT * from post_categories where id='$id'";
+$c_result = mysqli_query($db, $c_sql);
+$c_row = $c_result->fetch_assoc();
 
 ?>
 <?php get_header("" . $row['titulli'] . " - AlpetG Tech Blog "); ?>
+
+
 <ol class="breadcrumb">
     <li class="breadcrumb-item">
-        <a href="index.php">Home</a>
+        <a href="index.php" style="color: #333 !important; ">Home</a>
     </li>
-    <li class="breadcrumb-item active"><?php echo "" . $row['titulli'] . ""; ?></li>
+    <li class="breadcrumb-item active" style="color: #007c46 !important;"><?php echo " " . $c_row['emri'] . " "; ?></li>
+    <li class="breadcrumb-item active" style="color: #01cd74 !important;"><?php echo " " . $row['titulli'] . ""; ?></li>
 </ol>
 
 
-<div class="container mt-5">
+<div class=" container mt-5">
     <!-- <h3 class="tittle"></h3> -->
     <div class="row">
         <div class="col-lg-8 text-left mt-4">
@@ -32,9 +38,9 @@ $row = $result->fetch_assoc();
                         <ul>
                             <li>
                                 <a href="#">
-                                <i class="far fa-calendar-alt"></i><?php echo  date('j F, Y ', strtotime($row['date'])) ?>
-                                <i class="far fa-eye fa-x2"></i><?php echo $row['views']; ?>
-                            </a>
+                                    <i class="far fa-calendar-alt"></i><?php echo  date('j F, Y ', strtotime($row['date'])) ?>
+                                    <i class="far fa-eye fa-x2"></i><?php echo $row['views']; ?>
+                                </a>
                             </li>
 
                         </ul>

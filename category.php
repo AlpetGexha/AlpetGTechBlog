@@ -11,12 +11,13 @@ $row = $result->fetch_assoc();
 
 <ol class="breadcrumb">
     <li class="breadcrumb-item">
-        <a href="index.php">Home</a>
+        <a href="index.php" style="color: #333 !important;">Home</a>
     </li>
-    <li class="breadcrumb-item active"><?php echo $row['emri']; ?></li>
+    <li class=" breadcrumb-item active" style="color: #01cd74 !important;"><?php echo $row['emri']; ?>
+    </li>
 </ol>
 
-<div class="container mt-5">
+<div class=" container mt-5">
     <h3 class="tittle">Postimet p&euml;r <?php echo $row['emri']; ?></h3>
     <div class="row">
         <div class="col-lg-8 text-left">
