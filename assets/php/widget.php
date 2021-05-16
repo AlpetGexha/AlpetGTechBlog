@@ -5,7 +5,7 @@
             <?php get_kadegoirt("post_categories", "post"); ?>
         </ul>
     </div>
-    <div class="tech-btm widget_social mt-3">
+    <div class="widget_social mt-3">
 
         <h4>Rrjetet Sociale</h4>
         <ul>
