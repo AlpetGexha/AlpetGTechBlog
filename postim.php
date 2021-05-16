@@ -2,9 +2,15 @@
 include "server.php";
 include "database/config.php";
 $id = $_REQUEST['id'];
+
+//rrit viewsat per 1 pas cdo shikimi
+mysqli_query($db, "UPDATE post set views = views +1  WHERE id ='$id' ");
+
 $sql = "SELECT * from post where id='$id'";
 $result = mysqli_query($db, $sql);
 $row = $result->fetch_assoc();
+
+
 ?>
 <?php get_header("" . $row['titulli'] . " - AlpetG Tech Blog "); ?>
 <ol class="breadcrumb">
@@ -36,6 +42,7 @@ $row = $result->fetch_assoc();
                 <h1><?php echo $row['titulli']; ?></h1>
 
                 <p><?php echo $row['body']; ?></p>
+                <p><?php echo $row['views']; ?></p>
             </div>
         </div>
 
@@ -44,3 +51,4 @@ $row = $result->fetch_assoc();
     </div>
 </div>
 <?php get_footer(); ?>
+
