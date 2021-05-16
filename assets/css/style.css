@@ -20,7 +20,6 @@
    }
 
 
-
    p {
        margin: 0;
        font-size: 0.9em;
@@ -30,10 +29,12 @@
        font-weight: 300;
    }
 
+   /* ikonat */
    .far {
        color: #01cd74;
    }
 
+   /*titujt*/
    h3.tittle {
        text-align: center;
        font-size: 40px;
@@ -42,14 +43,15 @@
        font-weight: 600;
    }
 
-
+   /*Kur nuk ka resultat*/
    .null_result {
        text-align: center;
        color: red;
        margin-top: 12px;
    }
 
-   /************* Home *************/
+
+   /************* Postimet *************/
    .card-title a {
        text-decoration: none;
        color: black;
@@ -86,6 +88,7 @@
        background-color: #f0f3f1 !important;
    }
 
+
    /************* breadcrumb *************/
    .breadcrumb .breadcrumb-item li {
        font-size: 14.4px !important;
@@ -104,24 +107,19 @@
        color: #01cd74 !important;
    }
 
+
+   /************* Lista e Kategorive *************/
    .list-group-item a {
        color: black;
+       text-decoration: none;
    }
 
-   .list-group-item a:hover{
+   .list-group-item a:hover {
        color: #01cd74;
+       text-decoration: none;
+
    }
 
-   /************* footer *************/
-   footer {
-       width: 100%;
-       height: auto;
-       padding: 30px;
-       background-color: #e9ecef;
-       color: #01cd74;
-       text-align: center;
-       margin-top: 25px;
-   }
 
    /************* Social *************/
    .widget_social li {
@@ -162,13 +160,6 @@
        background: #24292e;
    }
 
-   .widget_social li a i {
-       font-size: 18px;
-       position: relative;
-       text-align: left;
-       width: 35px;
-   }
-
    .widget_social li a .count {
        padding-left: 90px;
    }
@@ -177,30 +168,11 @@
        text-decoration: none;
    }
 
-   .tech-btm h5 {
-       font-size: 0.9em;
-       line-height: 1.4em;
-       font-weight: 600;
-   }
-
-   .tech-btm h5 a {
-       color: #333;
-   }
-
-   .tech-btm img {
-       background: #ebecec;
-       padding: .4em;
-   }
-
-   .tech-btm h4 {
-       font-size: 1.2em;
-       color: #333333;
-       font-weight: 700;
-       margin-bottom: 1em;
-   }
-
-   .tech-btm {
-       margin-bottom: 2em;
+   .widget_social li a i {
+       font-size: 18px;
+       position: relative;
+       text-align: left;
+       width: 35px;
    }
 
    /************* Single Post *************/
@@ -231,6 +203,13 @@
        overflow: hidden;
    }
 
+   .single_post_info_show {
+       width: 100%;
+       background: rgba(14, 15, 16, 0.65);
+       padding: 18px;
+       position: absolute;
+       bottom: 0;
+   }
 
    .single_post_info_show ul {
        list-style-type: none;
@@ -255,15 +234,25 @@
    }
 
 
-   .single_post_info_show {
+
+   /************* footer *************/
+   footer {
        width: 100%;
-       background: rgba(14, 15, 16, 0.65);
-       padding: 18px;
-       position: absolute;
-       bottom: 0;
+       height: auto;
+       padding: 30px;
+       background-color: #e9ecef;
+       color: #01cd74;
+       text-align: center;
+       margin-top: 25px;
    }
 
 
+
+
+
+
+
+   /************* Media Query *************/
    @media(max-width:640px) {
 
        .single_post h1 {
