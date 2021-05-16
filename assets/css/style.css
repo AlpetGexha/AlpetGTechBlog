@@ -82,6 +82,7 @@
    .nav-link:focus {
        color: #fff !important;
        background: #01cd74 !important;
+       border-radius: 5px;
    }
 
    .bg-light {
