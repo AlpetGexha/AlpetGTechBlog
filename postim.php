@@ -28,12 +28,12 @@ $row = $result->fetch_assoc();
             <div class="single_post">
                 <div class="single_post_info">
                     <img src="assets/img/<?php echo $row['photo']; ?>" class="img-fluid" alt="image not available" style="width:900px;height:380px">
-
                     <div class="single_post_info_show">
                         <ul>
                             <li>
                                 <a href="#">
-                                    <i class="far fa-calendar-alt"></i><?php echo  date('j F, Y ', strtotime($row['date'])); ?></a>
+                                    <i class="far fa-calendar-alt"></i><?php echo  date('j F, Y ', strtotime($row['date'])) ?>
+                                <i class="far fa-eye fa-x2"></i><?php echo $row['views']; ?></a>
                             </li>
 
                         </ul>
@@ -42,7 +42,6 @@ $row = $result->fetch_assoc();
                 <h1><?php echo $row['titulli']; ?></h1>
 
                 <p><?php echo $row['body']; ?></p>
-                <p><?php echo $row['views']; ?></p>
             </div>
         </div>
 
@@ -51,4 +50,3 @@ $row = $result->fetch_assoc();
     </div>
 </div>
 <?php get_footer(); ?>
-

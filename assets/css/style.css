@@ -219,14 +219,21 @@
        overflow: hidden;
    }
 
+
    .single_post_info_show ul {
        list-style-type: none;
    }
+
 
    .single_post_info_show ul li a {
        font-size: 0.9em;
        letter-spacing: 1px;
        color: #fff;
+       margin-right: 99px;
+   }
+
+   .single_post_info_show ul li i {
+       margin-right: 5px;
    }
 
    .single_post_info_show ul li a:hover {
@@ -234,6 +241,7 @@
        opacity: 0.9;
        text-decoration: none;
    }
+
 
    .single_post_info_show {
        width: 100%;
