@@ -2,9 +2,19 @@
 include "database/config.php";
 include "server.php";
 ?>
-<?php get_header("Kerkimi - AlpetG Tech Blog "); ?>
 
+<?php
+$search = $_GET['search_post'];
+get_header("Kerkimi - $search  - AlpetG Tech Blog ");
+?>
 
+<ol class="breadcrumb">
+    <li class="breadcrumb-item">
+        <a href="index.php" style="color: #333 !important; ">Home</a>
+    </li>
+    <li class="breadcrumb-item active" style="color: #007c46 !important;">Search</li>
+    <li class="breadcrumb-item active" style="color: #01cd74 !important;"><?php echo " $search "; ?></li>
+</ol>
 
 <div class=" container">
     <h3 class="tittle">Rezultati i K&euml;rkimit</h3>
@@ -12,7 +22,7 @@ include "server.php";
         <div class="col-lg-8 text-left">
             <div class="search">
                 <div class="row">
-                
+
                     <?php
                     if (isset($_GET['search_post'])) {
                         $search = $_GET['search_post'];
