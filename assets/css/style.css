@@ -52,6 +52,15 @@
 
 
    /************* Postimet *************/
+
+   .col-cart-body .card {
+
+       display: flex;
+       justify-content: center;
+       width: 18rem;
+
+   }
+
    .card-title a {
        text-decoration: none;
        color: black;
@@ -249,11 +258,16 @@
 
 
 
-
-
-
-
    /************* Media Query *************/
+   @media(max-width:992px) {}
+
+   @media(max-width:767px) {
+       .col-cart-body .card {
+           width: 16rem;
+       }
+
+   }
+
    @media(max-width:640px) {
 
        .single_post h1 {
@@ -271,6 +285,11 @@
 
    }
 
+   @media(max-width:575px) {
+       .col-cart-body .card {
+           width: 18rem;
+       }
+   }
 
    @media(max-width:540px) {
 

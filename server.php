@@ -87,9 +87,9 @@ function get_post($table)
         }
         foreach ($result as $bloggrid => $row) {
             echo '
-                <div class="col-md-6">
+                <div class="col-sm-6 col-cart-body d-flex justify-content-center">
                     <div class="">
-                        <div class="card mt-3" style="width: 18rem;">
+                        <div class="card mt-3">
                             <a href="postim.php?id=' . $row['id'] . '">
                                 <img src="assets/img/' . $row['photo'] . '" class="card-img-top" alt="Foto">
                             </a>
@@ -125,7 +125,7 @@ function get_kategori_post($table, $id)
         }
         foreach ($result as $categories => $row) {
             echo '
-                <div class="col-md-6">
+                <div class="col-md-6 d-flex justify-content-center col-cart-body">
                     <div class="">
                         <div class="card mt-3" style="width: 18rem;">
                             <a href="postim.php?id=' . $row['id'] . '">

@@ -22,7 +22,6 @@ get_header("Kerkimi - $search  - AlpetG Tech Blog ");
         <div class="col-lg-8 text-left">
             <div class="search">
                 <div class="row">
-
                     <?php
                     if (isset($_GET['search_post'])) {
                         $search = $_GET['search_post'];
@@ -40,9 +39,9 @@ get_header("Kerkimi - $search  - AlpetG Tech Blog ");
                         while (($row = $result->fetch_assoc()) != null) {
 
                             echo '
-                        <div class="col-md-6">
+                        <div class="col-sm-6 d-flex justify-content-center col-cart-body">
                             <div class="">
-                                <div class="card mt-3" style="width: 18rem;">
+                                <div class="card mt-3">
                                     <a href="postim.php?id=' . $row['id'] . '">
                                         <img src="assets/img/' . $row['photo'] . '" class="card-img-top" alt="Foto">
                                     </a>
