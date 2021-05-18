@@ -51,9 +51,9 @@
 
                 </ul>
                 <ul class="navbar-nav ml-auto">
-                    <form method="GET" action="#" class="d-flex ">
-                        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                        <button class="btn btn-outline-success" type="submit">Search</button>
+                    <form method="GET" action="search.php" class="d-flex">
+                        <input class="form-control me-2" type="search" placeholder="K&euml;rkoni" name="search_post" required="" oninvalid="this.setCustomValidity('Shruani p&euml;r t&euml; k&euml;rkuar');" oninput="this.setCustomValidity('');">
+                        <button class=" btn btn-outline-success" type="submit" name="submit">K&euml;rko</button>
                     </form>
                 </ul>
             </div>
