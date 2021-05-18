@@ -50,9 +50,9 @@ function get_kadegoirt($table, $table1)
             echo '<p class="null_result">Nuk ka kategori</p';
         }
 
-        foreach ($result as $get_kadegoirt1 => $kategorit) {
+        foreach ($result as $get_kadegoirt1 => $row) {
             // sa herë secila kategori shfaqet në poste
-            $categoryid = $kategorit['id'];
+            $categoryid = $row['id'];
             $sql = "SELECT * FROM $table1 WHERE category='$categoryid'";
             if ($result = mysqli_query($db, $sql)) {
                 //numero kategorit
@@ -62,7 +62,7 @@ function get_kadegoirt($table, $table1)
             //shfaq
             echo '
             <li class="list-group-item d-flex justify-content-between align-items-center">
-            <a href="category.php?id=' . $kategorit['id'] . '">' . $kategorit['emri'] . '</a>
+            <a href="category.php?id=' . $row['id'] . '">' . $row['emri'] . '</a>
             
 			<span class="badge badge-success badge-pill">' . $rowcountkategorit . '</span>
 			</li>';
@@ -85,21 +85,21 @@ function get_post($table)
         if ($rowcount == 0) {
             echo 'Nuk ka Poste "width:350px;height:250px'; 
         }
-        foreach ($result as $bloggrid => $postitem) {
+        foreach ($result as $bloggrid => $row) {
             echo '
                 <div class="col-md-6">
                     <div class="">
                         <div class="card mt-3" style="width: 18rem;">
-                            <a href="postim.php?id=' . $postitem['id'] . '">
-                                <img src="assets/img/' . $postitem['photo'] . '" class="card-img-top" alt="Foto">
+                            <a href="postim.php?id=' . $row['id'] . '">
+                                <img src="assets/img/' . $row['photo'] . '" class="card-img-top" alt="Foto">
                             </a>
                             <div class="card-body">
-                            <i class="far fa-clock"></i>'. date('j F, Y ', strtotime($postitem['date']))  .'
-                            <i class="far fa-eye fa-x2"></i> '. $postitem['views'] .'
-                                <h5 class="card-title"><a href="postim.php?id=' . $postitem['id'] . '">' . $postitem['titulli'] . '</a></h5>
-                                <a" href="postim.php?id=' . $postitem['id'] . '"><p> ' . $postitem['body'] . ' </p></a>
+                            <i class="far fa-clock"></i>'. date('j F, Y ', strtotime($row['date']))  .'
+                            <i class="far fa-eye fa-x2"></i> '. $row['views'] .'
+                                <h5 class="card-title"><a href="postim.php?id=' . $row['id'] . '">' . $row['titulli'] . '</a></h5>
+                                <a" href="postim.php?id=' . $row['id'] . '"><p> ' . $row['body'] . ' </p></a>
                                 
-                                    <a class="btn btn-success" href="postim.php?id=' . $postitem['id'] . '">Meso m&euml; Shum&euml;</a>
+                                    <a class="btn btn-success" href="postim.php?id=' . $row['id'] . '">Meso m&euml; Shum&euml;</a>
                             </div>
                         </div>
                     </div>
@@ -123,20 +123,20 @@ function get_kategori_post($table, $id)
         if ($rowcount == 0) {
             echo '<p class="null_result"> Nuk ka postime p&euml;r k&euml;t&euml; kategori</p>';
         }
-        foreach ($result as $categories => $k_post) {
+        foreach ($result as $categories => $row) {
             echo '
                 <div class="col-md-6">
                     <div class="">
                         <div class="card mt-3" style="width: 18rem;">
-                            <a href="postim.php?id=' . $k_post['id'] . '">
-                                <img src="assets/img/' . $k_post['photo'] . '" class="card-img-top" alt="Foto">
+                            <a href="postim.php?id=' . $row['id'] . '">
+                                <img src="assets/img/' . $row['photo'] . '" class="card-img-top" alt="Foto">
                             </a>
                             <div class="card-body">
-                            <i class="far fa-clock"></i>' . date('j F, Y ', strtotime($k_post['date']))  . '
-                            <i class="far fa-eye fa-x2"></i> ' . $k_post['views'] . '
-                                <h5 class="card-title"><a href="postim.php?id=' . $k_post['id'] . '">' . $k_post['titulli'] . '</a></h5>
-                                <a" href="postim.php?id=' . $k_post['id'] . '"><p> ' . $k_post['body'] . ' </p></a>
-                                    <a class="btn btn-success" href="postim.php?id=' . $k_post['id'] . '">Meso m&euml; Shum&euml;</a>
+                            <i class="far fa-clock"></i>' . date('j F, Y ', strtotime($row['date']))  . '
+                            <i class="far fa-eye fa-x2"></i> ' . $row['views'] . '
+                                <h5 class="card-title"><a href="postim.php?id=' . $row['id'] . '">' . $row['titulli'] . '</a></h5>
+                                <a" href="postim.php?id=' . $row['id'] . '"><p> ' . $row['body'] . ' </p></a>
+                                    <a class="btn btn-success" href="postim.php?id=' . $row['id'] . '">Meso m&euml; Shum&euml;</a>
                             </div>
                         </div>
                     </div>
