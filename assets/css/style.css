@@ -271,6 +271,18 @@
 
    }
 
+
+   @media(max-width:540px) {
+
+
+       .navbar .nav-item,
+       .navbar .dropdown-menu a {
+           justify-content: center;
+           text-align: center;
+       }
+   }
+
+
    @media(max-width:430px) {
        .single_post img {
            max-height: 300px;
@@ -283,6 +295,12 @@
 
        h3.tittle {
            font-size: 28.8px;
+       }
+
+       .navbar .nav-item,
+       .navbar .dropdown-menu a {
+           justify-content: center;
+           text-align: center;
        }
    }
 
