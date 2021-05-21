@@ -54,9 +54,6 @@
    /************* Postimet *************/
 
    .col-cart-body .card {
-
-       display: flex;
-       justify-content: center;
        width: 18rem;
 
    }
