@@ -9,10 +9,13 @@ mysqli_query($db, "UPDATE post set views = views +1  WHERE id ='$id' ");
 $sql = "SELECT * from post where id='$id'";
 $result = mysqli_query($db, $sql);
 $row = $result->fetch_assoc();
+$c_category = $row['category'];
 
-$c_sql = "SELECT * from post_categories where id='$id'";
+$c_sql = "SELECT * from post_categories where id = '$c_category'";
 $c_result = mysqli_query($db, $c_sql);
 $c_row = $c_result->fetch_assoc();
+
+
 
 ?>
 <?php get_header("" . $row['titulli'] . " "); ?>
@@ -22,7 +25,8 @@ $c_row = $c_result->fetch_assoc();
     <li class="breadcrumb-item">
         <a href="index.php" style="color: #333 !important; ">Home</a>
     </li>
-    <li class="breadcrumb-item active" style="color: #007c46 !important;"><?php echo " " . $c_row['emri'] . " "; ?></li>
+    
+    <li class="breadcrumb-item active" style="color: #007c46 !important;"><?php echo " ".$c_row['emri']." " ?></li>
     <li class="breadcrumb-item active" style="color: #01cd74 !important;"><?php echo " " . $row['titulli'] . ""; ?></li>
 </ol>
 
