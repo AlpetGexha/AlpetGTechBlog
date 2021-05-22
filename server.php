@@ -86,12 +86,13 @@ function get_post($table)
         if ($rowcount == 0) {
             echo 'Nuk ka Poste "width:350px;height:250px';
         }
-        foreach ($result as $bloggrid => $row) {
+
+        foreach ($result as $key => $row) {
             echo '
                 <div class="col-sm-6 col-cart-body d-flex justify-content-center">
                     <div class="">
                         <div class="card mt-3">
-                            <a href="postim.php?id=' . $row['id'] . '">
+                            <a href="postim.php?id=' . $key . '">
                                 <img src="assets/img/' . $row['photo'] . '" class="card-img-top" alt="Foto">
                             </a>
                             <div class="card-body">
@@ -175,13 +176,12 @@ if (isset($_POST['create_post_submit'])) {
 
     // Insert image file name into database
     $insert = "INSERT INTO post (titulli,body,category)VALUES('$p_titulli','$p_pershkrimi','$p_kategorit')";
-
     mysqli_query($db, $insert);
-    if ($insert) {
-        $msg = "Postime u postua me sukses";
-        //header('Location:../stafi.php');
-    }
+
+    $msg = "Postimi u postua me sukes";
+    header("Location:create_post.php");
 }
+
 // Compress image
 function compressImage($source, $destination, $quality)
 {
@@ -198,4 +198,22 @@ function compressImage($source, $destination, $quality)
         $image = imagecreatefrompng($source);
 
     imagejpeg($image, $destination, $quality);
+}
+
+
+//****************Krijimi i kategorive****************//
+
+if (isset($_POST['add_kategory'])) {
+    $c_kategory = mysqli_real_escape_string($db, $_POST['c_kategory']);
+    $sql = "SELECT * from post_categories WHERE emri= '$c_kategory' ";
+    $result = mysqli_query($db, $sql);
+    if (mysqli_num_rows($result) > 0) {
+        $msg = "Kjo kategori ekzioston";
+    } else {
+
+        $insert = "INSERT into post_categories(emri) VALUE('$c_kategory')";
+        mysqli_query($db, $insert);
+
+        header("Location:create_category.php");
+    }
 }
