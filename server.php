@@ -1,12 +1,13 @@
 <?php
-
+include "database/config.php";
 //headeri
 function get_header($title_bar)
 {
-    include "assets/php/head.php";//linkat
-    echo "<title>$title_bar - AlpetGTech Blog</title></head>";//tilulli per tab 
-    include "assets/php/header.php";//headeri ,navbari
+    include "assets/php/head.php"; //linkat
+    echo "<title>$title_bar - AlpetGTech Blog</title></head>"; //tilulli per tab 
+    include "assets/php/header.php"; //headeri ,navbari
 }
+
 
 //footer
 function get_footer()
@@ -83,7 +84,7 @@ function get_post($table)
         $rowcount = mysqli_num_rows($result);
 
         if ($rowcount == 0) {
-            echo 'Nuk ka Poste "width:350px;height:250px'; 
+            echo 'Nuk ka Poste "width:350px;height:250px';
         }
         foreach ($result as $bloggrid => $row) {
             echo '
@@ -94,8 +95,8 @@ function get_post($table)
                                 <img src="assets/img/' . $row['photo'] . '" class="card-img-top" alt="Foto">
                             </a>
                             <div class="card-body">
-                            <i class="far fa-clock"></i>'. date('j F, Y ', strtotime($row['date']))  .'
-                            <i class="far fa-eye fa-x2"></i> '. $row['views'] .'
+                            <i class="far fa-clock"></i>' . date('j F, Y ', strtotime($row['date']))  . '
+                            <i class="far fa-eye fa-x2"></i> ' . $row['views'] . '
                                 <h5 class="card-title"><a href="postim.php?id=' . $row['id'] . '">' . $row['titulli'] . '</a></h5>
                                 <a" href="postim.php?id=' . $row['id'] . '"><p> ' . $row['body'] . ' </p></a>
                                 
@@ -104,8 +105,7 @@ function get_post($table)
                         </div>
                     </div>
                 </div>
-            '
-            ;
+            ';
         }
     }
 
@@ -146,4 +146,56 @@ function get_kategori_post($table, $id)
     }
 
     mysqli_close($db);
+}
+
+
+function get_Aheader($title_bar)
+{
+    include "../assets/php/head.php"; //linkat
+    echo '<link rel="stylesheet" type="text/css" href="../assets/css/bootstrap.css">';
+    echo "<title>$title_bar - AlpetGTech Blog</title></head>"; //tilulli per tab 
+    include "../assets/php/admin-navbar.php"; //navbari
+}
+
+
+
+
+
+//****************Krijimi i postimeve****************//
+
+if (isset($_POST['create_post_submit'])) {
+    $p_titulli = mysqli_real_escape_string($db, $_POST['p_titulli']);
+    $p_pershkrimi = mysqli_real_escape_string($db, $_POST['p_pershkrimi']);
+    $p_kategorit = mysqli_real_escape_string($db, $_POST['p_kategorit']);
+    //$u_id = mysqli_real_escape_string($db, $_SESSION['id']);
+
+
+
+
+
+    // Insert image file name into database
+    $insert = "INSERT INTO post (titulli,body,category)VALUES('$p_titulli','$p_pershkrimi','$p_kategorit')";
+
+    mysqli_query($db, $insert);
+    if ($insert) {
+        $msg = "Postime u postua me sukses";
+        //header('Location:../stafi.php');
+    }
+}
+// Compress image
+function compressImage($source, $destination, $quality)
+{
+
+    $info = getimagesize($source);
+
+    if ($info['mime'] == 'image/jpeg')
+        $image = imagecreatefromjpeg($source);
+
+    elseif ($info['mime'] == 'image/gif')
+        $image = imagecreatefromgif($source);
+
+    elseif ($info['mime'] == 'image/png')
+        $image = imagecreatefrompng($source);
+
+    imagejpeg($image, $destination, $quality);
 }
