@@ -1,5 +1,5 @@
 <?php include "server.php"; ?>
-<?php get_header("AlpetG Tech Blog - Rresth-nesh"); ?>
+<?php get_header("Rresth Nesh"); ?>
 <ol class="breadcrumb">
     <li class="breadcrumb-item">
         <a href="index.php">Home</a>
