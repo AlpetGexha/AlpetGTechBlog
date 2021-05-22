@@ -26,6 +26,7 @@
         <div class="container-xxl">
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
                 <span class="navbar-toggler-icon"></span>
+                <!-- <img src="assets/img/logo.jpg" alt=""> -->
             </button>
             <div class="collapse navbar-collapse" id="collapsibleNavbar">
                 <ul class="navbar-nav">

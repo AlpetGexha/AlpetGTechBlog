@@ -38,7 +38,7 @@ include "../database/config.php";
                     <thead>
                         <tr>
                             <th scope="col">ID</th>
-                            <th scope="col">Kategoria</th>
+                            <th scope="col">Kategorit</th>
                         </tr>
                     </thead>
 

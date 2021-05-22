@@ -2,6 +2,7 @@
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js" integrity="sha384-q2kxQ16AaE6UbzuKqyBE9/u/KzioAlnx2maXQHiDX9d4/zp8Ok3f+M7DPm+Ib6IU" crossorigin="anonymous"></script>
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" crossorigin="anonymous"></script>
 
+<link rel='shortcut icon' type='image/x-icon' href='../assets/img/logo.jpg'>
 
 <nav class="sb-topnav sticky-top navbar navbar-expand navbar-dark bg-dark">
     <a class="navbar-brand" href="#">Admin Pannel</a>

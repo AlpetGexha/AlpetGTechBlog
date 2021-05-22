@@ -207,6 +207,8 @@ if (isset($_POST['add_kategory'])) {
     $c_kategory = mysqli_real_escape_string($db, $_POST['c_kategory']);
     $sql = "SELECT * from post_categories WHERE emri= '$c_kategory' ";
     $result = mysqli_query($db, $sql);
+
+
     if (mysqli_num_rows($result) > 0) {
         $msg = "Kjo kategori ekzioston";
     } else {
