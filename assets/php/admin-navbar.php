@@ -14,22 +14,26 @@
             <div class="sb-sidenav-menu">
                 <div class="nav sticky-top">
                     <div class="sb-sidenav-menu-heading">Main</div>
-                    <a class="nav-link" href="../admin/index.php">
+                    <a class="nav-link" href="#">
                         <div class="sb-nav-link-icon"><i class="fas fa-users"></i></div>
                         P&euml;doruesits
                     </a>
-                    <a class="nav-link" href="../admin/sms_admin.php">
+                    <a class="nav-link" href="#">
                         <div class="sb-nav-link-icon"><i class="fas fa-envelope"></i></div>
                         Mesazhet
                     </a>
-                    <a class="nav-link" href="../admin/post_admin.php">
+                    <a class="nav-link" href="#">
                         <div class="sb-nav-link-icon"><i class="fas fa-blog"></i></div>
                         Postimet
                     </a>
 
-                    <a class="nav-link" href="../admin/create_pos.php">
-                        <div class="sb-nav-link-icon"><i class="fas fa-blog"></i></div>
+                    <a class="nav-link" href="../admin/create_post.php">
+                        <div class="sb-nav-link-icon"><i class="fas fa-tools"></i></div>
                         Krijo Postime
+                    </a>
+                    <a class="nav-link" href="../admin/create_category.php">
+                        <div class="sb-nav-link-icon"><i class="fas fa-tools"></i></div>
+                        Shto Kategori
                     </a>
 
                     <a class="nav-link" href="../index.php">
