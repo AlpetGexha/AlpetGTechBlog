@@ -1,5 +1,5 @@
 <?php include "server.php"; ?>
-<?php get_header("AlpetG Tech Blog  - Ballina"); ?>
+<?php get_header("Ballina"); ?>
 <ol class="breadcrumb">
     <li class="breadcrumb-item" style="color: #333 !important;">
         <a href=" index.php" style="color: #333 !important;">Home</a>

@@ -15,7 +15,7 @@ $c_result = mysqli_query($db, $c_sql);
 $c_row = $c_result->fetch_assoc();
 
 ?>
-<?php get_header("" . $row['titulli'] . " - AlpetG Tech Blog "); ?>
+<?php get_header("" . $row['titulli'] . " "); ?>
 
 
 <ol class="breadcrumb">

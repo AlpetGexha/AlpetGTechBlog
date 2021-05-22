@@ -7,7 +7,7 @@ $result = mysqli_query($db, $sql);
 $row = $result->fetch_assoc();
 ?>
 
-<?php get_header("" . $row["emri"] . " - AlpetG Tech Blog"); ?>
+<?php get_header("" . $row["emri"] . ""); ?>
 
 <ol class="breadcrumb">
     <li class="breadcrumb-item">

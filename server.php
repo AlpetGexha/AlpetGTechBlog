@@ -4,7 +4,7 @@
 function get_header($title_bar)
 {
     include "assets/php/head.php";//linkat
-    echo "<title>$title_bar</title></head>";//tilulli per tab 
+    echo "<title>$title_bar - AlpetGTech Blog</title></head>";//tilulli per tab 
     include "assets/php/header.php";//headeri ,navbari
 }
 
@@ -147,5 +147,3 @@ function get_kategori_post($table, $id)
 
     mysqli_close($db);
 }
-
-?>

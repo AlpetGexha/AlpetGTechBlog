@@ -5,7 +5,7 @@ include "server.php";
 
 <?php
 $search = $_GET['search_post'];
-get_header("Kerkimi - $search  - AlpetG Tech Blog ");
+get_header("K&euml;rkimi - $search ");
 ?>
 
 <ol class="breadcrumb">
