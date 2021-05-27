@@ -1,0 +1,10 @@
+Options +Multiviews
+Options -Indexes
+RewriteEngine on
+
+IndexIgnore *
+
+ErrorDocument 403 http://localhost/AlpetGTechBlog/errors/403.php
+ErrorDocument 404 http://localhost/AlpetGTechBlog/errors/404.php
+ErrorDocument 500 http://localhost/AlpetGTechBlog/errors/500.php
+ErrorDocument 503 http://localhost/AlpetGTechBlog/errors/503.php
