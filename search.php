@@ -31,7 +31,7 @@ get_header("K&euml;rkimi - $search ");
                         $row_count = mysqli_num_rows($result);
 
                         if ($row_count == 0) {
-                            echo "<p class='null_result' style=color:#E9573F;><b>Na vjen keq por k&euml;rkimi juaj p&euml;r :<u style=color:black>$search</u> nuk ka resultat! Ju  lutem k&euml;rkoni p&euml;r&euml;ri</b></p>";
+                            echo "<p class='null_result' style=color:#E9573F;><b>Na vjen keq por k&euml;rkimi juaj p&euml;r :<u style=color:black>$search</u> nuk ka resultat! Ju  lutem k&euml;rkoni p&euml;rs&euml;ri</b></p>";
                         } else {
                             echo "<p style=color:#4FC1E9><b>Ju k&euml;rkuat p&euml;r :<u style=color:black> $search</u></b></p>";
                             echo "<p style=color:#37BC9B><b>Rezultati p&euml;r postime ($row_count)...</b></p>";
