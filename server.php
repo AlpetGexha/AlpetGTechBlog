@@ -90,7 +90,7 @@ function get_post($table)
 
         foreach ($result as $key => $row) {
             echo '
-                <div class="col-sm-4 col-cart-body d-flex justify-content-center">
+                <div class="col-sm-4 col-cart-body d-flex flex-wrap justify-content-center">
                     <div class="">
                         <div class="card mt-3">
                             <a href="postim.php?id=' . $key . '">
@@ -159,8 +159,34 @@ function get_Aheader($title_bar)
     include "../assets/php/admin-navbar.php"; //navbari
 }
 
+function get_modal_button($m_id){
+    echo ' <td> <a class="btn btn-danger"  data-toggle="modal" data-target="#modal_' . $m_id. ' ">Fshije</a><td> ';
+}
 
+function get_modal($m_id,$path,$title,$text){
+    echo '
+        <div class="modal fade" id="modal_' . $m_id . '" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle">'.$title.'</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                '.$text.'
+                <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">JO</button>
+                <a href="'.$path.'? id= ' . $m_id . '"class="btn btn-danger"id="delete_btn" >PO! Fshije</a>
+                </div>
+            </div>
 
+            </div>
+        </div>
+        </div>
+        ';
+}
 
 
 //****************Krijimi i postimeve****************//
@@ -173,8 +199,6 @@ if (isset($_POST['create_post_submit'])) {
 
 
 
-
-
     // Insert image file name into database
     $insert = "INSERT INTO post (titulli,body,category)VALUES('$p_titulli','$p_pershkrimi','$p_kategorit')";
     mysqli_query($db, $insert);
@@ -184,22 +208,22 @@ if (isset($_POST['create_post_submit'])) {
 }
 
 // Compress image
-function compressImage($source, $destination, $quality)
-{
-
-    $info = getimagesize($source);
-
-    if ($info['mime'] == 'image/jpeg')
-        $image = imagecreatefromjpeg($source);
-
-    elseif ($info['mime'] == 'image/gif')
-        $image = imagecreatefromgif($source);
-
-    elseif ($info['mime'] == 'image/png')
-        $image = imagecreatefrompng($source);
-
-    imagejpeg($image, $destination, $quality);
-}
+//function compressImage($source, $destination, $quality)
+//{
+//
+//    $info = getimagesize($source);
+//
+//    if ($info['mime'] == 'image/jpeg')
+//        $image = imagecreatefromjpeg($source);
+//
+//    elseif ($info['mime'] == 'image/gif')
+//        $image = imagecreatefromgif($source);
+//
+//    elseif ($info['mime'] == 'image/png')
+//        $image = imagecreatefrompng($source);
+//
+//    imagejpeg($image, $destination, $quality);
+//}
 
 
 //****************Krijimi i kategorive****************//
@@ -219,4 +243,19 @@ if (isset($_POST['add_kategory'])) {
 
         header("Location:create_category.php");
     }
+}
+//**************** Mesazhet ****************//
+if(isset($_POST['kontakit_submit']))
+{
+    $ko_mail = mysqli_real_escape_string($db,$_POST['ko_mail']);
+    $ko_mesazhi = mysqli_real_escape_string($db,$_POST['ko_mesazhi']);
+
+    $insert = "INSERT into kontakit (email,sms) VALUE ('$ko_mail', '$ko_mesazhi')";
+    mysqli_query($db,$insert);
+    if(!$insert){
+        echo "False";
+    } else{
+        echo "True";
+    }
+
 }
