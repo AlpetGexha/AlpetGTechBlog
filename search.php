@@ -1,6 +1,7 @@
 <?php
 include "database/config.php";
 include "server.php";
+
 ?>
 
 <?php
