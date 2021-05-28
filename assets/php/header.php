@@ -47,7 +47,7 @@
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link" href="index.php">Kontakti</a>
+                        <a class="nav-link" href="kontakti.php">Kontakti</a>
                     </li>
 
                 </ul>
