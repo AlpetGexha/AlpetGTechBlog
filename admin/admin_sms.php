@@ -45,32 +45,10 @@ include "../database/config.php";
                         <td> ' . $i++ . ' </td> 
                         <td> ' . $ko_row['email'] . ' </td>
                        <td> <textarea class="" rows="2" cols="40" readonly=""> ' . $ko_row["sms"] . '</textarea></td>
-                        <td> <a class="btn btn-danger"  data-toggle="modal" data-target="#aplikemet_' . $ko_row["id"] . ' ">Fshije</a> </td>
+                        <td> <a class="btn btn-danger"  data-toggle="modal" data-target="#modal_' . $ko_row["id"] . ' ">Fshije</a> </td>
                         </tr>  ';
-
-                        //             echo '
-                        //              <div class="modal fade" id="aplikemet_' . $ko_row['id'] . '" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-                        //                <div class="modal-dialog modal-dialog-centered" role="document">
-                        //                  <div class="modal-content">
-                        //                    <div class="modal-header">
-                        //                      <h5 class="modal-title" id="exampleModalLongTitle">Kujedes</h5>
-                        //                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        //                        <span aria-hidden="true">&times;</span>
-                        //                      </button>
-                        //                    </div>
-                        //                    <div class="modal-body">
-                        //                      A jeni i sigurt q&euml; d&euml;shironi ta fshini k&euml;t&euml; kategori<br>
-                        //                      N&euml;se fshini k&euml;t&euml; kategori do te fshini edhe t&euml; gjita  postimet me k&euml;te kategori
-                        //                      <div class="modal-footer">
-                        //                       <button type="button" class="btn btn-secondary" data-dismiss="modal">JO</button>
-                        //                        <a href="delete/catefory_delete.php? id= '.$ko_row['id'].'"class="btn btn-danger"id="delete_btn" >PO! Fshije</a>
-                        //                      </div>
-                        //                    </div>
-                        //
-                        //                  </div>
-                        //                </div>
-                        //              </div>
-                        //              ';
+                        $path = "delete/sms_delete.php";
+                        get_modal($ko_row["id"],$path,"Kujedes","A deshironi ta fshini mesazhin");
                     }
                 }
 
