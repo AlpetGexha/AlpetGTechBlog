@@ -19,7 +19,7 @@
                         <div class="sb-nav-link-icon"><i class="fas fa-users"></i></div>
                         P&euml;doruesits
                     </a>
-                    <a class="nav-link" href="#">
+                    <a class="nav-link" href="../admin/admin_sms.php">
                         <div class="sb-nav-link-icon"><i class="fas fa-envelope"></i></div>
                         Mesazhet
                     </a>
