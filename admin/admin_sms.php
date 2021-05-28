@@ -21,7 +21,7 @@ include "../database/config.php";
 </div>';
         }
         ?>
-
+<h3 class="title">Kontakit</h3>
         <table class="table table-striped table-hover">
             <thead>
                 <tr>
