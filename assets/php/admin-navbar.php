@@ -5,7 +5,7 @@
 <link rel='shortcut icon' type='image/x-icon' href='../assets/img/logo.jpg'>
 
 <nav class="sb-topnav sticky-top navbar navbar-expand navbar-dark bg-dark">
-    <a class="navbar-brand" href="#">Admin Pannel</a>
+    <a class="navbar-brand" href="#">Paneli i Adminit</a>
     <button class="btn btn-link btn-sm order-1 order-lg-0" id="sidebarToggle" href="#!"><i class="fas fa-bars"></i></button>
     <!-- Navbar-->
 </nav>
