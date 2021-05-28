@@ -54,7 +54,7 @@
    /************* Postimet *************/
 
    .col-cart-body .card {
-       width: 18rem;
+       width: 15rem;
 
    }
 
@@ -257,10 +257,17 @@
 
    /************* Media Query *************/
    @media(max-width:992px) {}
+   @media(max-width:1200px) {
+       .col-cart-body .card {
+           width: 13rem;
+       }
+   }
+
+
 
    @media(max-width:767px) {
        .col-cart-body .card {
-           width: 16rem;
+           width: 10rem;
        }
 
    }
@@ -284,7 +291,9 @@
 
    @media(max-width:575px) {
        .col-cart-body .card {
-           width: 18rem;
+           width: 16rem;
+           padding-right: 0.10rem;
+           padding-left: 0.10rem;
        }
    }
 

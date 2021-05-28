@@ -1,5 +1,6 @@
 <?php
 include "database/config.php";
+include "class.php";
 //headeri
 function get_header($title_bar)
 {
@@ -89,7 +90,7 @@ function get_post($table)
 
         foreach ($result as $key => $row) {
             echo '
-                <div class="col-sm-6 col-cart-body d-flex justify-content-center">
+                <div class="col-sm-4 col-cart-body d-flex justify-content-center">
                     <div class="">
                         <div class="card mt-3">
                             <a href="postim.php?id=' . $key . '">
