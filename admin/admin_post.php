@@ -38,18 +38,18 @@ include "../database/config.php";
             <tbody>
                 <?php
                 require("../database/config.php");
-                $c_sql = "SELECT * from post ";
+                $c_sql = "SELECT p.id, p.titulli, p.body, p.category, p.date, c.emri from post p, post_categories c WHERE p.category = c.id order by p.id DESC";
                 if ($result = mysqli_query($db, $c_sql)) {
                     $i = 1;
 
                     foreach ($result as $key => $post_row) {
                         //$ko_row['id']
                         echo ' <tr>
-                        <td> ' . $i++ . ' </td> 
+                        <td> ' . $post_row['id'] . ' </td> 
                         <td> ' . "img" . ' </td>
                         <td> ' . $post_row["titulli"] . ' </td> 
                        <td> <textarea class="" rows="2" cols="40" readonly=""> ' . $post_row["body"] . '</textarea></td>
-                       <td> ' . $post_row['category'] . ' </td> 
+                       <td> ' . $post_row['emri'] . ' </td> 
                        <td> ' .  date('j F, Y ,h:i:s A', strtotime($post_row['date'])) . ' </td> 
                        <td> <a class="btn btn-danger"  data-toggle="modal" data-target="#modal_' . $post_row["id"] . ' ">Fshije</a> </td>
                         </tr>  ';
