@@ -56,7 +56,7 @@ $c_row = $c_result->fetch_assoc();
 
                             <div class="mb-3 p_upload">
                                 <label>Foto</label>
-                                <input class="form-control" type="file" id="formFile" name="image" oninvalid="this.setCustomValidity('Zgjithni Foto');" oninput="this.setCustomValidity('');">
+                                <input class="form-control" type="file" id="formFile" name="my_image" oninvalid="this.setCustomValidity('Zgjithni Foto');" oninput="this.setCustomValidity('');">
                             </div>
 
                             <div class="form-group">
