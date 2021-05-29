@@ -23,7 +23,7 @@
                         <div class="sb-nav-link-icon"><i class="fas fa-envelope"></i></div>
                         Mesazhet
                     </a>
-                    <a class="nav-link" href="#">
+                    <a class="nav-link" href="../admin/admin_post.php">
                         <div class="sb-nav-link-icon"><i class="fas fa-blog"></i></div>
                         Postimet
                     </a>
