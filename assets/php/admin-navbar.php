@@ -9,6 +9,15 @@
     <button class="btn btn-link btn-sm order-1 order-lg-0" id="sidebarToggle" href="#!"><i class="fas fa-bars"></i></button>
     <!-- Navbar-->
 </nav>
+
+<?php
+require "../database/config.php";
+$username = $_SESSION['username'];
+$sql = "SELECT * from users where username = '$username'";
+
+$results = mysqli_query($db, $sql);
+$row = $results->fetch_assoc();
+?>
 <div id="layoutSidenav">
     <div id="layoutSidenav_nav">
         <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
@@ -61,11 +70,10 @@
                 </div>
             </div>
 
-            <!-- <div class="sb-sidenav-footer">
-                <div class="small">Admini: <?php //echo $username; 
-                                            ?></div>
+            <div class="sb-sidenav-footer">
+                <div class="small">Admini: <?php echo $username; ?> <a href="../assets/php/logout.php"> Shkyqu </a> </div>
             </div>
-             -->
+
         </nav>
     </div>
 

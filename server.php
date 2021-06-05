@@ -1,6 +1,9 @@
 <?php
 include "database/config.php";
 include "class.php";
+session_start();
+ob_start();
+
 //headeri
 function get_header($title_bar)
 {
@@ -93,7 +96,7 @@ function get_post($table)
                 <div class="col-sm-4 col-cart-body d-flex flex-wrap justify-content-center">
                     <div class="">
                         <div class="card mt-3">
-                            <a href="postim.php?id=' . $key . '">
+                            <a href="postim.php?id=' . $row['id'] . '">
                                 <img src="assets/img/' . $row['photo'] . '" class="card-img-top" alt="Foto">
                             </a>
                             <div class="card-body">
@@ -258,4 +261,34 @@ if(isset($_POST['kontakit_submit']))
         echo "True";
     }
 
+}
+
+function IamAdmin(){
+    if (!isset($_SESSION['loggedIn']) || $_SESSION['loggedIn'] == false) {
+        header("Location:../login.php");
+        die();
+    }
+}
+
+//**************** Login ****************//
+if (isset($_POST['login_submit'])) {
+    $username = mysqli_real_escape_string($db, $_POST['login_us']);
+    $password = mysqli_real_escape_string($db, $_POST['login_pw']);
+
+    $sql =    "SELECT * from users where username = '$username'";
+    $results = mysqli_query($db, $sql);
+    $row = $results->fetch_assoc();
+
+
+    if (mysqli_num_rows($results) != 1) {
+        $msg = "Ky p&euml;rdorues nuk ekziston. Regjistrohuni tani ";
+    } else if (password_verify($password, $row['password'])) {
+        $_SESSION['username'] = $username;
+        $_SESSION['loggedIn'] = true;
+        $_SESSION['ROLE'] = $row['role'];
+        header('Location:admin/admin_post.php');
+    } else {
+        $msg = "Fjalekalimi &euml;sht&euml; gabim";
+
+    }
 }

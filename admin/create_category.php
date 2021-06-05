@@ -2,7 +2,7 @@
 $msg = "";
 include "../server.php";
 include "../database/config.php";
-
+IamAdmin();
 ?>
 
 <?php get_Aheader("Admin"); ?>

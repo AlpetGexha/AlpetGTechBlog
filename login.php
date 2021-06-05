@@ -1,4 +1,12 @@
-<?php include "server.php"; ?>
+<?php
+include "server.php";
+include "database/config.php";
+ob_start();
+    if (!($_SESSION['loggedIn']) && $_SESSION['loggedIn'] == true) {
+        header("Location:index.php");
+}
+?>
+
 <?php include "assets/php/head.php";
 echo "<title> Login - AlpetGTech Blog</title></head>";
 echo "<body>";
@@ -17,12 +25,12 @@ echo "<body>";
                         <h4 class="card-title">Panli i Adminit</h4>
                         <form method="POST" action="#">
                             <div class="form-group">
-                                <label for="login_username">P&euml;rdoruesi</label>
-                                <input id="login_username" type="text" class="form-control" placeholder="P&euml;rdoruesi" name="username" value="" required="" autofocus="" oninvalid="this.setCustomValidity('Ju lutem shkruani p&euml;rdoruesin');" oninput="this.setCustomValidity('');">
+                                <label for="login_us">P&euml;rdoruesi</label>
+                                <input id="login_us" type="text" class="form-control" placeholder="P&euml;rdoruesi" name="login_us" required="" autofocus="" oninvalid="this.setCustomValidity('Ju lutem shkruani p&euml;rdoruesin');" oninput="this.setCustomValidity('');">
                             </div>
                             <div class="form-group">
-                                <label for="password">Fjal&euml;kalimi</label>
-                                <input id="password" type="password" placeholder="Fjal&euml;kalimi" class="form-control" name="password" required="" oninvalid="this.setCustomValidity('Ju lutem shkruani fjal&euml;kalimin');" oninput="this.setCustomValidity('');">
+                                <label for="login_pw">Fjal&euml;kalimi</label>
+                                <input id="login_pw" type="password" placeholder="Fjal&euml;kalimi" class="form-control" name="login_pw" required="" oninvalid="this.setCustomValidity('Ju lutem shkruani fjal&euml;kalimin');" oninput="this.setCustomValidity('');">
                             </div>
                             <div class="form-group m-0">
                                 <button type="submit" name="login_submit" class="btn btn-primary btn-block">

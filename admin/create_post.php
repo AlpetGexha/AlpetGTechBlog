@@ -2,7 +2,7 @@
 
 include "../server.php";
 include "../database/config.php";
-
+http://localhost/AlpetGTechBlog/
 
 $c_sql = "SELECT * from post_categories ";
 $c_result = mysqli_query($db, $c_sql);

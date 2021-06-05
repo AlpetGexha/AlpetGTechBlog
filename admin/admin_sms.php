@@ -2,7 +2,7 @@
 $msg = "";
 include "../server.php";
 include "../database/config.php";
-
+IamAdmin();
 ?>
 
 <?php get_Aheader("Admin"); ?>
@@ -59,6 +59,6 @@ include "../database/config.php";
 
     </div>
 
-    </body>
+    </div>
 
     </html>
