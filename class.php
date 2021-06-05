@@ -26,7 +26,7 @@ class PostStyle
                 <div class="col-sm-4 col-cart-body d-flex justify-content-center">
                     <div class="">
                         <div class="card mt-3">
-                            <a href="postim.php?id=' . $key . '">
+                            <a href="postim.php?id=' . $row['id'] . '">
                                 <img src="assets/img/' . $row['photo'] . '" class="card-img-top" alt="Foto">
                             </a>
                             <div class="card-body">

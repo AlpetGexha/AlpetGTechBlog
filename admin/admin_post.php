@@ -6,7 +6,7 @@ include "../database/config.php";
 IamAdmin();
 ?>
 
-<?php get_Aheader("Admin"); ?>
+<?php get_Aheader("Post Admin"); ?>
 
 <div id="layoutSidenav_content">
 

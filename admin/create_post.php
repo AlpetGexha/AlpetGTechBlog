@@ -17,7 +17,7 @@ $c_row = $c_result->fetch_assoc();
     }
 </style>
 
-<?php get_Aheader("Admin"); ?>
+<?php get_Aheader("C_Post Admin"); ?>
 
 
 <div id="layoutSidenav_content">

@@ -36,7 +36,7 @@
 
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
-                            Kadegorit
+                            Kategorit
                         </a>
                         <div class="dropdown-menu">
                             <?php get_kadegoirt_menu("post_categories") ?>
