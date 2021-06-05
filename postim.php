@@ -26,7 +26,7 @@ $c_row = $c_result->fetch_assoc();
         <a href="index.php" style="color: #333 !important; ">Home</a>
     </li>
 
-    <li class="breadcrumb-item active" style="color: #01cd74 !important;"><?php echo " <a href='category.php? id=".$c_row['id']."'>".$c_row['emri']."</a> " ?></li>
+    <li class="breadcrumb-item active" style="color: #01cd74 !important;"><?php echo " <a href='category.php? id=" . $c_row['id'] . "'>" . $c_row['emri'] . "</a> " ?></li>
     <li class="breadcrumb-item active" style="color: #01cd74 !important;"><?php echo " " . $row['titulli'] . ""; ?></li>
 </ol>
 

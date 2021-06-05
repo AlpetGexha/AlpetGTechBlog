@@ -1,10 +1,12 @@
 <?php
+ob_start();
 include "server.php";
 include "database/config.php";
-ob_start();
-    if (!($_SESSION['loggedIn']) && $_SESSION['loggedIn'] == true) {
-        header("Location:index.php");
+
+if (!($_SESSION['loggedIn']) && $_SESSION['loggedIn'] == true) {
+    header("Location:index.php");
 }
+
 ?>
 
 <?php include "assets/php/head.php";

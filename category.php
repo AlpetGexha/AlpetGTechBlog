@@ -13,8 +13,7 @@ $row = $result->fetch_assoc();
     <li class="breadcrumb-item">
         <a href="index.php" style="color: #333 !important;">Home</a>
     </li>
-    <li class=" breadcrumb-item active" style="color: #01cd74 !important;"><?php echo $row['emri']; ?>
-    </li>
+    <li class=" breadcrumb-item active" style="color: #01cd74 !important;"><?php echo $row['emri']; ?></li>
 </ol>
 
 <div class=" container mt-5">
