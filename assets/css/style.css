@@ -58,6 +58,10 @@ h3.tittle {
 
 }
 
+.card-title {
+    margin-top: 5px;
+}
+
 .card-title a {
     text-decoration: none;
     color: black;
@@ -67,8 +71,11 @@ h3.tittle {
     overflow: hidden;
     text-overflow: ellipsis;
     display: -webkit-box;
-    -webkit-line-clamp: 3;
+    -webkit-line-clamp: 4;
     -webkit-box-orient: vertical;
+    line-height: 1.5;
+    letter-spacing: 1px;
+
 }
 
 .card-body p:hover,
@@ -184,7 +191,7 @@ h3.tittle {
 
 /************* Single Post *************/
 .single_post {
-    border: 1px solid #ddd;
+    border-bottom: 2px solid #ddd;
     border-radius: 3px;
     padding-bottom: 3em;
     padding: 5px;
@@ -201,6 +208,8 @@ h3.tittle {
 .single_post p {
     font-family: 'Open Sans', Arial, sans-serif;
     margin-bottom: 16px;
+    line-height: 2.3;
+    letter-spacing: 2px;
 
 }
 
@@ -309,6 +318,18 @@ footer {
         width: 10rem;
     }
 
+    .card-body {
+        font-size: 0.9rem;
+    }
+
+    .card-body .btn-submit {
+        font-size: 0.7rem;
+    }
+
+    .card-body h5.card-title {
+        margin-top: 5px;
+        font-size: 0.9rem;
+    }
 }
 
 @media(max-width:640px) {

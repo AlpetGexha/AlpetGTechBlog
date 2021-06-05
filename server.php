@@ -103,9 +103,8 @@ function get_post($table)
                             <i class="far fa-clock"></i>' . date('j F, Y ', strtotime($row['date']))  . '
                             <i class="far fa-eye fa-x2"></i> ' . $row['views'] . '
                                 <h5 class="card-title"><a href="postim.php?id=' . $row['id'] . '">' . $row['titulli'] . '</a></h5>
-                                <a" href="postim.php?id=' . $row['id'] . '"><p> ' . $row['body'] . ' </p></a>
-                                
-                                    <a class="btn btn-success" href="postim.php?id=' . $row['id'] . '">Meso m&euml; Shum&euml;</a>
+                                <a" href="postim.php?id=' . $row['id'] . '"><p class="body-text"> ' . $row['body'] . ' </p></a>                                
+                                <a class="btn btn-success btn-submit" href="postim.php?id=' . $row['id'] . '">Meso m&euml; Shum&euml;</a>
                             </div>
                         </div>
                     </div>
