@@ -36,37 +36,32 @@ $row_admin = $results_admin->fetch_assoc();
                         <div class="sb-nav-link-icon"><i class="fas fa-blog"></i></div>
                         Postimet
                     </a>
+                    <!-- <a class="nav-link" href="#">
+                            <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
+                            Dashboard
+                            </a>  -->
+                    <div class="sb-sidenav-menu-heading">Shto</div>
 
-                    <a class="nav-link" href="../admin/create_post.php">
+                    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages" aria-expanded="false" aria-controls="collapsePages">
                         <div class="sb-nav-link-icon"><i class="fas fa-tools"></i></div>
-                        Krijo Postime
+                        Krijoni
+                        <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                     </a>
-                    <a class="nav-link" href="../admin/create_category.php">
-                        <div class="sb-nav-link-icon"><i class="fas fa-tools"></i></div>
-                        Shto Kategori
-                    </a>
-
+                    <div class="collapse" id="collapsePages" aria-labelledby="headingTwo" data-parent="#sidenavAccordion">
+                        <nav class="sb-sidenav-menu-nested nav accordion" id="sidenavAccordionPages">
+                            <a class="nav-link" href="../admin/create_post.php">
+                               Postime
+                            </a>
+                            <a class="nav-link" href="../admin/create_category.php">
+                               Kategori
+                            </a>
+                        </nav>
+                    </div>
+                    <div class="sb-sidenav-menu-heading">Index</div>
                     <a class="nav-link" href="../index.php">
                         <div class="sb-nav-link-icon"><i class="fas fa-sign-out-alt"></i></div>
-                        Shko ne faqen kryesores
+                        Faqja kryesore
                     </a>
-                    <!-- <a class="nav-link" href="#">
-              <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
-              Dashboard
-            </a> -->
-                    <!-- <div class="sb-sidenav-menu-heading">Interface</div>
-            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages" aria-expanded="false" aria-controls="collapsePages">
-              <div class="sb-nav-link-icon"><i class="fas fa-book-open"></i></div>
-              Pages
-              <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
-            </a>
-            <div class="collapse" id="collapsePages" aria-labelledby="headingTwo" data-parent="#sidenavAccordion">
-              <nav class="sb-sidenav-menu-nested nav accordion" id="sidenavAccordionPages">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#pagesCollapseAuth" aria-expanded="false" aria-controls="pagesCollapseAuth">
-                  Authentication
-                </a>
-              </nav>
-            </div> -->
                 </div>
             </div>
 
