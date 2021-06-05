@@ -13,10 +13,10 @@
 <?php
 require "../database/config.php";
 $username = $_SESSION['username'];
-$sql = "SELECT * from users where username = '$username'";
+$sql_admin = "SELECT * from users where username = '$username'";
 
-$results = mysqli_query($db, $sql);
-$row = $results->fetch_assoc();
+$results_admin = mysqli_query($db, $sql_admin);
+$row_admin = $results_admin->fetch_assoc();
 ?>
 <div id="layoutSidenav">
     <div id="layoutSidenav_nav">
@@ -24,7 +24,7 @@ $row = $results->fetch_assoc();
             <div class="sb-sidenav-menu">
                 <div class="nav sticky-top">
                     <div class="sb-sidenav-menu-heading">Main</div>
-                    <a class="nav-link" href="#">
+                    <a class="nav-link" href="../admin/admin_user.php">
                         <div class="sb-nav-link-icon"><i class="fas fa-users"></i></div>
                         P&euml;doruesits
                     </a>
