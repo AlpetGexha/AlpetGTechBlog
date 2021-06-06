@@ -22,7 +22,7 @@
         </div>
     </div>
 
-    <nav class="navbar sticky-top navbar-expand-md bg-light navbar-light">
+    <nav class="navbar sticky-top navbar-expand-md bg-light navbar-light main-navbar">
         <div class="container-xxl">
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
                 <span class="navbar-toggler-icon"></span>
