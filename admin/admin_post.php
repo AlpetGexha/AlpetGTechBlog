@@ -47,15 +47,26 @@ IamAdmin();
                         foreach ($result as $key => $post_row) {
                             //$ko_row['id']
                             echo ' <tr>
-                        <td> ' . $post_row['id'] . ' </td> 
+                        <td> ' . $i++. ' </td> 
                         <td> ' . "img" . ' </td>
                         <td> ' . $post_row["titulli"] . ' </td> 
                        <td> <textarea class="" rows="2" cols="40" readonly=""> ' . $post_row["body"] . '</textarea></td>
                        <td> ' . $post_row['emri'] . ' </td> 
                        <td> ' .  date('j F, Y ,h:i:s A', strtotime($post_row['date'])) . ' </td> 
-                       <td> <a class="btn btn-danger"  data-toggle="modal" data-target="#modal_' . $post_row["id"] . ' ">Fshije</a> </td>
+                       <td> <a class="btn btn-danger"  data-toggle="modal" data-target="#modal_' . $post_row["id"] . ' ">Fshije</a> /
+                         <a class="btn btn-primary"  data-toggle="modal" data-target="#modal_edit_' . $post_row["id"] . ' ">Nrysho</a> </td>
                         </tr>  ';
-                            get_modal($post_row["id"], "delete/post_delete.php", "Kujedes", "A deshironi ta fshini Postimin<b> " . $post_row['titulli'] . "</b>");
+                            //modal for delete
+                            get_modal($post_row["id"], "delete/post_delete.php", "Kujedes", "A deshironi ta fshini Postimin<b> " . $post_row['titulli'] . "</b>", "danger", "PO! Fshijeni");
+                            //modal for edit
+                            get_modal("edit_" . $post_row["id"], "../server.php", "Kujedes", '
+                                <form action="../server.php" method="POST">
+                                    <h6>Titulli</h6>
+                                        <input type="text" class="form-control" name="post_titulli" autofocus="" required="" value="' . $post_row['titulli'] . '">
+                                    <h6>Teksti</h6>
+                                    <textarea class="form-control" required="" placeholder="" id="floatingTextarea2" style="height: 220px" name="post_body"> ' . $post_row['body'] . '</textarea>                                                                  
+                            ', "primary", 
+                            '<button type="submit" class="btn btn-primary" id="submit" value="' . $post_row['id'] . '" name="post_update">Ndrysho</button>');
                         }
                     }
 
@@ -67,5 +78,10 @@ IamAdmin();
     </div>
 
 </div>
+</div>
+
+
+
+</body>
 
 </html>

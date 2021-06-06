@@ -166,7 +166,7 @@ function get_modal_button($m_id){
     echo ' <td> <a class="btn btn-danger"  data-toggle="modal" data-target="#modal_' . $m_id. ' ">Fshije</a><td> ';
 }
 
-function get_modal($m_id,$path,$title,$text){
+function get_modal($m_id,$path,$title,$text,$color,$btn_text){
     echo '
         <div class="modal fade" id="modal_' . $m_id . '" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
@@ -178,13 +178,13 @@ function get_modal($m_id,$path,$title,$text){
                 </button>
             </div>
             <div class="modal-body">
-                '.$text.'
+                '.$text. '
                 <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">JO</button>
-                <a href="'.$path.'? id= ' . $m_id . '"class="btn btn-danger"id="delete_btn" >PO! Fshije</a>
+                <a  href="'.$path.'? id= ' . $m_id . '"class="btn btn-'.$color. '"id="delete_btn"  >'.$btn_text.'</a>
                 </div>
             </div>
-
+    </form>
             </div>
         </div>
         </div>
@@ -291,4 +291,16 @@ if (isset($_POST['login_submit'])) {
         $msg = "Fjalekalimi &euml;sht&euml; gabim!";
 
     }
+}
+//****************Post Update ****************//
+if (isset($_POST['post_update'])) {
+    $id = $_POST['post_update'];
+    $titulli = mysqli_real_escape_string($db, $_POST['post_titulli']);
+    $body = mysqli_real_escape_string($db, $_POST['post_body']);
+    
+
+    //updati nga edit.php 
+    $post_update = "UPDATE post set titulli = '$titulli', body = '$body' where id=$id";
+    mysqli_query($db, $post_update);
+    header("Location:admin/admin_post.php");
 }

@@ -48,8 +48,7 @@ IamAdmin();
                        <td> <textarea class="" rows="2" cols="40" readonly=""> ' . $ko_row["sms"] . '</textarea></td>
                         <td> <a class="btn btn-danger"  data-toggle="modal" data-target="#modal_' . $ko_row["id"] . ' ">Fshije</a> </td>
                         </tr>  ';
-                            $path = "delete/sms_delete.php";
-                            get_modal($ko_row["id"], $path, "Kujedes", "A deshironi ta fshini mesazhin");
+                            get_modal($ko_row["id"], "delete/sms_delete.php", "Kujedes", "A deshironi ta fshini mesazhin","danger","PO! Fshije");
                         }
                     }
 

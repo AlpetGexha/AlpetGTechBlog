@@ -61,7 +61,7 @@ IamAdmin();
                         <td> <a class="btn btn-danger"  data-toggle="modal" data-target="#modal_' . $c_row["id"] . ' ">Fshije</a> </td>
                         </tr>  ';
                                     get_modal($c_row['id'], "delete/catefory_delete.php", "Kujdes", " A jeni i sigurt q&euml; d&euml;shironi ta fshini k&euml;t&euml; kategori<br>
-                      N&euml;se fshini k&euml;t&euml; kategori do te fshini edhe t&euml; gjita  postimet me k&euml;te kategori");
+                      N&euml;se fshini k&euml;t&euml; kategori do te fshini edhe t&euml; gjita  postimet me k&euml;te kategori", "danger", "PO!Fshije");
                                 }
                             }
 
