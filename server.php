@@ -144,7 +144,7 @@ function get_kategori_post($table, $id)
                             </div>
                         </div>
                     </div>
-                </div>
+                </div>  
             ';
         }
     }
@@ -156,6 +156,7 @@ function get_kategori_post($table, $id)
 function get_Aheader($title_bar)
 {
     include "../assets/php/head.php"; //linkat
+    echo '<link rel="stylesheet" type="text/css" href="../assets/css/style.css">';
     echo '<link rel="stylesheet" type="text/css" href="../assets/css/bootstrap.css">';
     echo "<title>$title_bar - AlpetGTech Blog</title></head>"; //tilulli per tab 
     include "../assets/php/admin-navbar.php"; //navbari
@@ -280,14 +281,14 @@ if (isset($_POST['login_submit'])) {
 
 
     if (mysqli_num_rows($results) != 1) {
-        $msg = "Ky p&euml;rdorues nuk ekziston. Regjistrohuni tani ";
+        $msg = "Ky p&euml;rdorues nuk ekziston!";
     } else if (password_verify($password, $row['password'])) {
         $_SESSION['username'] = $username;
         $_SESSION['loggedIn'] = true;
         $_SESSION['ROLE'] = $row['role'];
         header('Location:admin/admin_post.php');
     } else {
-        $msg = "Fjalekalimi &euml;sht&euml; gabim";
+        $msg = "Fjalekalimi &euml;sht&euml; gabim!";
 
     }
 }
