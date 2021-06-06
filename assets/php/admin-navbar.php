@@ -13,7 +13,7 @@
 <?php
 require "../database/config.php";
 $username = $_SESSION['username'];
-$sql_admin = "SELECT * from users where username = '$username'";
+$sql_admin = "SELECT u.id, u.emri, u.mbiemri, u.username,u.email,u.j_data, r.role from users u,roles r where u.username = '$username' and u.role = r.id";
 
 $results_admin = mysqli_query($db, $sql_admin);
 $row_admin = $results_admin->fetch_assoc();
@@ -50,10 +50,10 @@ $row_admin = $results_admin->fetch_assoc();
                     <div class="collapse" id="collapsePages" aria-labelledby="headingTwo" data-parent="#sidenavAccordion">
                         <nav class="sb-sidenav-menu-nested nav accordion" id="sidenavAccordionPages">
                             <a class="nav-link" href="../admin/create_post.php">
-                               Postime
+                                Postime
                             </a>
                             <a class="nav-link" href="../admin/create_category.php">
-                               Kategori
+                                Kategori
                             </a>
                         </nav>
                     </div>
@@ -66,7 +66,8 @@ $row_admin = $results_admin->fetch_assoc();
             </div>
 
             <div class="sb-sidenav-footer">
-                <div class="small">Admini: <?php echo $username; ?> <a href="../assets/php/logout.php"> Shkyqu </a> </div>
+                <div class="small">Admini: <?php echo $row_admin['username']; ?> <a href="../assets/php/logout.php"> Shkyqu </a> </div>
+                <div class="small">Roli: <?php echo $row_admin['role']; ?> </div>
             </div>
 
         </nav>
