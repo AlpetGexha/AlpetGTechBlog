@@ -36,38 +36,41 @@ IamAdmin();
 
                     </div>
                 </div>
-                <table class="table table-striped table-hover">
-                    <thead>
-                        <tr>
-                            <th scope="col">ID</th>
-                            <th scope="col">Kategorit</th>
-                            <th scope="col">Opsionet</th>
-                        </tr>
-                    </thead>
+                <div class="r-table">
+                    <table class="table table-striped table-hover">
+                        <thead>
+                            <tr>
+                                <th scope="col">ID</th>
+                                <th scope="col">Kategorit</th>
+                                <th scope="col">Opsionet</th>
+                            </tr>
+                        </thead>
 
-                    <tbody>
-                        <?php
-                        require("../database/config.php");
-                        $c_sql = "SELECT * from post_categories ";
-                        if ($result = mysqli_query($db, $c_sql)) {
-                            $i = 1;
-                            foreach ($result as $key => $c_row) {
+                        <tbody>
+                            <?php
+                            require("../database/config.php");
+                            $c_sql = "SELECT * from post_categories ";
+                            if ($result = mysqli_query($db, $c_sql)) {
+                                $i = 1;
+                                foreach ($result as $key => $c_row) {
 
-                                //$c_row['id']
-                                echo ' <tr>
-                        <td> ' . $i++. ' </td> 
+                                    //$c_row['id']
+                                    echo ' <tr>
+                        <td> ' . $i++ . ' </td> 
                         <td> ' . $c_row['emri'] . ' </td>
                         <td> <a class="btn btn-danger"  data-toggle="modal" data-target="#modal_' . $c_row["id"] . ' ">Fshije</a> </td>
                         </tr>  ';
-                                get_modal($c_row['id'], "delete/catefory_delete.php", "Kujdes", " A jeni i sigurt q&euml; d&euml;shironi ta fshini k&euml;t&euml; kategori<br>
+                                    get_modal($c_row['id'], "delete/catefory_delete.php", "Kujdes", " A jeni i sigurt q&euml; d&euml;shironi ta fshini k&euml;t&euml; kategori<br>
                       N&euml;se fshini k&euml;t&euml; kategori do te fshini edhe t&euml; gjita  postimet me k&euml;te kategori");
+                                }
                             }
-                        }
 
-                        ?>
+                            ?>
 
-                    </tbody>
-                </table>
+                        </tbody>
+                    </table>
+
+                </div>
             </div>
         </div>
     </div>

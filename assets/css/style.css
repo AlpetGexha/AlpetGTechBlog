@@ -57,6 +57,11 @@ h3.tittle {
     top: 55px;
 }
 
+
+.r-table {
+    overflow-x: auto;
+}
+
 /************* Postimet *************/
 
 .col-cart-body .card {
@@ -94,11 +99,11 @@ h3.tittle {
     margin: 0 2px;
 }
 
-.dropdown-item:hover,
-.nav-item:hover,
-.nav-item:focus,
-.nav-link:hover,
-.nav-link:focus {
+.main-navbar .dropdown-item:hover,
+.main-navbar .nav-item:hover,
+.main-navbar .nav-item:focus,
+.main-navbar .nav-link:hover,
+.main-navbar .nav-link:focus {
     color: #fff !important;
     background: #01cd74 !important;
     border-radius: 5px;
