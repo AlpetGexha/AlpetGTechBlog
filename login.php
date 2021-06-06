@@ -3,9 +3,9 @@ ob_start();
 include "server.php";
 include "database/config.php";
 
-if (!($_SESSION['loggedIn']) && $_SESSION['loggedIn'] == true) {
-    header("Location:index.php");
-}
+// if (!($_SESSION['loggedIn']) && $_SESSION['loggedIn'] == true) {
+//     header("Location:index.php");
+// }
 
 ?>
 
@@ -13,18 +13,23 @@ if (!($_SESSION['loggedIn']) && $_SESSION['loggedIn'] == true) {
 echo "<title> Login - AlpetGTech Blog</title></head>";
 echo "<body>";
 ?>
+
 <div class="Login-Page">
     <div class="container mt-5 h-100">
+
         <div class="row justify-content-md-center h-100">
             <div class="card-wrapper">
                 <div class="card fat">
                     <div class="card-body">
+
+                        <h4 class="card-title">Panli i Adminit</h4>
                         <?php
                         if (!empty($msg)) {
-                            echo '<p>' . $msg . '</p>';
+                            echo  '<div class="alert alert-danger">
+                                  <strong>' . $msg . '</strong>  
+                                </div>';
                         }
                         ?>
-                        <h4 class="card-title">Panli i Adminit</h4>
                         <form method="POST" action="#">
                             <div class="form-group">
                                 <label for="login_us">P&euml;rdoruesi</label>
