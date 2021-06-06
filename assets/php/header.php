@@ -17,6 +17,18 @@
             </div>
             <div class="col-md-4 top-forms text-center mt-lg-3 mt-md-1 mt-0">
                 <span>Mir&euml;seerdh&euml;t!</span>
+                <?php
+                if (isset($_SESSION['ROLE']) && $_SESSION['ROLE'] != '0') {
+                    require "database/config.php";
+                    $sql = "SELECT * from users";
+                    $result = mysqli_query($db, $sql);
+                    $row = $result->fetch_assoc();
+                    echo "<b>" . $row['username'] . "</b>";
+                    echo '
+                    <a class="far" href="admin/admin_user.php">Admin Control Panel</a>
+                ';
+                }
+                ?>
             </div>
 
         </div>
