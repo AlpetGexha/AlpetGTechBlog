@@ -2,7 +2,7 @@
 
 include "../server.php";
 include "../database/config.php";
-http://localhost/AlpetGTechBlog/
+http: //localhost/AlpetGTechBlog/
 
 $c_sql = "SELECT * from post_categories ";
 $c_result = mysqli_query($db, $c_sql);
@@ -40,7 +40,7 @@ $c_row = $c_result->fetch_assoc();
                     <div class="card-body">
                         <h4 class="card-title">Krijo Postime</h4>
 
-                        <form method="POST" action="#">
+                        <form method="POST" action="#" enctype="multipart/form-data">
 
                             <div class="form-group">
                                 <label>Titulli</label>
@@ -56,7 +56,7 @@ $c_row = $c_result->fetch_assoc();
 
                             <div class="mb-3 p_upload">
                                 <label>Foto</label>
-                                <input class="form-control" type="file" id="formFile" name="my_image" oninvalid="this.setCustomValidity('Zgjithni Foto');" oninput="this.setCustomValidity('');">
+                                <input class="form-control" type="file" id="formFile" name="image" oninvalid="this.setCustomValidity('Zgjithni Foto');" oninput="this.setCustomValidity('');">
                             </div>
 
                             <div class="form-group">
@@ -64,7 +64,6 @@ $c_row = $c_result->fetch_assoc();
                                 <select name="p_kategorit" class="custom-select mb-3">
                                     <option selected disabled required=""> Çfar&euml; kategorie &euml;sht&euml; postimi </option>
                                     <?php
-
 
                                     foreach ($c_result as $key => $c_row) {
                                         echo '  <option value=" ' . $c_row['id'] . ' ">'    . $c_row['emri'] . '</option>     ';

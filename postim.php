@@ -37,7 +37,7 @@ $c_row = $c_result->fetch_assoc();
         <div class="col-lg-8 text-left mt-4">
             <div class="single_post">
                 <div class="single_post_info">
-                    <img src="assets/img/<?php echo $row['photo']; ?>" class="img-fluid" alt="image not available" style="width:900px;height:380px">
+                    <img src="assets/img/post/<?php echo $row['photo']; ?>" class="img-fluid" alt="image not available" style="width:900px;height:380px">
                     <div class="single_post_info_show">
                         <ul>
                             <li>

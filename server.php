@@ -90,14 +90,13 @@ function get_post($table)
         if ($rowcount == 0) {
             echo 'Nuk ka Poste "width:350px;height:250px';
         }
-
         foreach ($result as $key => $row) {
             echo '
                 <div class="col-sm-4 col-cart-body d-flex flex-wrap justify-content-center">
                     <div class="">
                         <div class="card mt-3">
                             <a href="postim.php?id=' . $row['id'] . '">
-                                <img src="assets/img/' . $row['photo'] . '" class="card-img-top" alt="Foto">
+                                <img src="assets/img/post/'.$row['photo'].' " class="card-img-top" alt="Foto">
                             </a>
                             <div class="card-body">
                             <i class="far fa-clock"></i>' . date('j F, Y ', strtotime($row['date']))  . '
@@ -133,7 +132,7 @@ function get_kategori_post($table, $id)
                     <div class="">
                         <div class="card mt-3" style="width: 18rem;">
                             <a href="postim.php?id=' . $row['id'] . '">
-                                <img src="assets/img/' . $row['photo'] . '" class="card-img-top" alt="Foto">
+                                <img src="assets/img/post/' . $row['photo'] . '" class="card-img-top" alt="Foto">
                             </a>
                             <div class="card-body">
                             <i class="far fa-clock"></i>' . date('j F, Y ', strtotime($row['date']))  . '
@@ -162,26 +161,28 @@ function get_Aheader($title_bar)
     include "../assets/php/admin-navbar.php"; //navbari
 }
 
-function get_modal_button($m_id){
-    echo ' <td> <a class="btn btn-danger"  data-toggle="modal" data-target="#modal_' . $m_id. ' ">Fshije</a><td> ';
+function get_modal_button($m_id)
+{
+    echo ' <td> <a class="btn btn-danger"  data-toggle="modal" data-target="#modal_' . $m_id . ' ">Fshije</a><td> ';
 }
 
-function get_modal($m_id,$path,$title,$text,$color,$btn_text){
+function get_modal($m_id, $path, $title, $text, $color, $btn_text)
+{
     echo '
         <div class="modal fade" id="modal_' . $m_id . '" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLongTitle">'.$title.'</h5>
+                <h5 class="modal-title" id="exampleModalLongTitle">' . $title . '</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
                 </button>
             </div>
             <div class="modal-body">
-                '.$text. '
+                ' . $text . '
                 <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">JO</button>
-                <a  href="'.$path.'? id= ' . $m_id . '"class="btn btn-'.$color. '"id="delete_btn"  >'.$btn_text.'</a>
+                <a  href="' . $path . '? id= ' . $m_id . '"class="btn btn-' . $color . '"id="delete_btn"  >' . $btn_text . '</a>
                 </div>
             </div>
     </form>
@@ -192,6 +193,7 @@ function get_modal($m_id,$path,$title,$text,$color,$btn_text){
 }
 
 
+
 //****************Krijimi i postimeve****************//
 
 if (isset($_POST['create_post_submit'])) {
@@ -200,33 +202,43 @@ if (isset($_POST['create_post_submit'])) {
     $p_kategorit = mysqli_real_escape_string($db, $_POST['p_kategorit']);
     //$u_id = mysqli_real_escape_string($db, $_SESSION['id']);
 
+    //Image name
+    $fileName = mysqli_real_escape_string($db, basename($_FILES["image"]["name"]));
+    //shto extension
+    $fileAcualeExt = strtolower(end(explode('.', $fileName)));
+    $fileNameNew =  "AlpetG Blog" . uniqid('.', true) . "." . $fileAcualeExt;
+
+    //direktori i fotos
+    $fileDestination = "../assets/img/post/" . $fileNameNew;
 
 
-    // Insert image file name into database
-    $insert = "INSERT INTO post (titulli,body,category)VALUES('$p_titulli','$p_pershkrimi','$p_kategorit')";
-    mysqli_query($db, $insert);
+    $allowTypes = array('jpg', 'JPG', 'png', 'PNG', 'jpeg', 'JPEG', 'gif');
 
-    $msg = "Postimi u postua me sukes";
-    header("Location:create_post.php");
+    if (in_array($fileAcualeExt, $allowTypes)) {
+
+        // Upload image s
+        if (move_uploaded_file($_FILES["image"]["tmp_name"], $fileDestination)) {
+
+            if ($_FILES['image']['size'] < 10485760) {
+                //compressImage($_FILES["image"]["tmp_name"], $fileDestination, 60);
+                // Insert ne databases
+                $insert = "INSERT INTO post (titulli,body,category,photo)VALUES('$p_titulli','$p_pershkrimi','$p_kategorit','$fileNameNew')";
+                mysqli_query($db, $insert);
+                if ($insert) {
+                    $msg = "Postimi  u postua";
+                    header("Location:create_post.php");
+                } else {
+                    $msg = "Ngarkimi i fotografis&euml; d&euml;shtoi, ju lutemi provoni p&euml;rs&euml;ri";
+                }
+            } else {
+                $msg = "Foto &euml;sht&euml; shum&euml; e madhe. MAXIMUMI 10mb";
+            }
+        }
+    } else {
+        $msg = 'Vet&euml;m FOTO( JPG, JPEG, PNG, & GIF) lejohen t&euml; ngarkohen.';
+    }
+
 }
-
-// Compress image
-//function compressImage($source, $destination, $quality)
-//{
-//
-//    $info = getimagesize($source);
-//
-//    if ($info['mime'] == 'image/jpeg')
-//        $image = imagecreatefromjpeg($source);
-//
-//    elseif ($info['mime'] == 'image/gif')
-//        $image = imagecreatefromgif($source);
-//
-//    elseif ($info['mime'] == 'image/png')
-//        $image = imagecreatefrompng($source);
-//
-//    imagejpeg($image, $destination, $quality);
-//}
 
 
 //****************Krijimi i kategorive****************//
@@ -248,22 +260,21 @@ if (isset($_POST['add_kategory'])) {
     }
 }
 //**************** Mesazhet ****************//
-if(isset($_POST['kontakit_submit']))
-{
-    $ko_mail = mysqli_real_escape_string($db,$_POST['ko_mail']);
-    $ko_mesazhi = mysqli_real_escape_string($db,$_POST['ko_mesazhi']);
+if (isset($_POST['kontakit_submit'])) {
+    $ko_mail = mysqli_real_escape_string($db, $_POST['ko_mail']);
+    $ko_mesazhi = mysqli_real_escape_string($db, $_POST['ko_mesazhi']);
 
     $insert = "INSERT into kontakit (email,sms) VALUE ('$ko_mail', '$ko_mesazhi')";
-    mysqli_query($db,$insert);
-    if(!$insert){
+    mysqli_query($db, $insert);
+    if (!$insert) {
         echo "False";
-    } else{
+    } else {
         echo "True";
     }
-
 }
 
-function IamAdmin(){
+function IamAdmin()
+{
     if (!isset($_SESSION['loggedIn']) || $_SESSION['loggedIn'] == false) {
         header("Location:../login.php");
         die();
@@ -289,7 +300,6 @@ if (isset($_POST['login_submit'])) {
         header('Location:admin/admin_post.php');
     } else {
         $msg = "Fjalekalimi &euml;sht&euml; gabim!";
-
     }
 }
 //****************Post Update ****************//
@@ -297,10 +307,25 @@ if (isset($_POST['post_update'])) {
     $id = $_POST['post_update'];
     $titulli = mysqli_real_escape_string($db, $_POST['post_titulli']);
     $body = mysqli_real_escape_string($db, $_POST['post_body']);
-    
+
 
     //updati nga edit.php 
     $post_update = "UPDATE post set titulli = '$titulli', body = '$body' where id=$id";
     mysqli_query($db, $post_update);
     header("Location:admin/admin_post.php");
+}
+
+
+
+//compressImage function
+function compressImage($source, $destination, $quality)
+{
+    $info = getimagesize($source);
+    if ($info['mime'] == 'image/jpeg')
+        $image = imagecreatefromjpeg($source);
+    elseif ($info['mime'] == 'image/gif')
+        $image = imagecreatefromgif($source);
+    elseif ($info['mime'] == 'image/png')
+        $image = imagecreatefrompng($source);
+    imagejpeg($image, $destination, $quality);
 }
