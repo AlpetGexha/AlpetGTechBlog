@@ -96,7 +96,7 @@ function get_post($table)
                     <div class="">
                         <div class="card mt-3">
                             <a href="postim.php?id=' . $row['id'] . '">
-                                <img src="assets/img/post/'.$row['photo'].' " class="card-img-top" alt="Foto">
+                                <img src="assets/img/post/' . $row['photo'] . ' " class="card-img-top" alt="Foto">
                             </a>
                             <div class="card-body">
                             <i class="far fa-clock"></i>' . date('j F, Y ', strtotime($row['date']))  . '
@@ -237,7 +237,6 @@ if (isset($_POST['create_post_submit'])) {
     } else {
         $msg = 'Vet&euml;m FOTO( JPG, JPEG, PNG, & GIF) lejohen t&euml; ngarkohen.';
     }
-
 }
 
 

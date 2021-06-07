@@ -34,21 +34,22 @@ IamAdmin();
                         <th scope="col">Kategoria</th>
                         <th scope="col">Data</th>
                         <th scope="col">Opsionet</th>
+                        <img src="" alt="">
                     </tr>
                 </thead>
 
                 <tbody>
                     <?php
                     require("../database/config.php");
-                    $c_sql = "SELECT p.id, p.titulli, p.body, p.category, p.date, c.emri from post p, post_categories c WHERE p.category = c.id order by p.id DESC";
+                    $c_sql = "SELECT p.id, p.titulli, p.body, p.category, p.date,p.photo, c.emri from post p, post_categories c WHERE p.category = c.id order by p.id DESC";
                     if ($result = mysqli_query($db, $c_sql)) {
                         $i = 1;
 
                         foreach ($result as $key => $post_row) {
                             //$ko_row['id']
                             echo ' <tr>
-                        <td> ' . $i++. ' </td> 
-                        <td> ' . "img" . ' </td>
+                        <td> ' . $i++ . ' </td> 
+                        <td> <img src="../assets/img/post/' . $post_row['photo'] . '" class="table-img" alt="Foto">  </td>
                         <td> ' . $post_row["titulli"] . ' </td> 
                        <td> <textarea class="" rows="2" cols="40" readonly=""> ' . $post_row["body"] . '</textarea></td>
                        <td> ' . $post_row['emri'] . ' </td> 
@@ -59,19 +60,24 @@ IamAdmin();
                             //modal for delete
                             get_modal($post_row["id"], "delete/post_delete.php", "Kujedes", "A deshironi ta fshini Postimin<b> " . $post_row['titulli'] . "</b>", "danger", "PO! Fshijeni");
                             //modal for edit
-                            get_modal("edit_" . $post_row["id"], "../server.php", "Kujedes", '
+                            get_modal(
+                                "edit_" . $post_row["id"],
+                                "../server.php",
+                                "Kujedes",
+                                '
                                 <form action="../server.php" method="POST">
                                     <h6>Titulli</h6>
                                         <input type="text" class="form-control" name="post_titulli" autofocus="" required="" value="' . $post_row['titulli'] . '">
                                     <h6>Teksti</h6>
                                     <textarea class="form-control" required="" placeholder="" id="floatingTextarea2" style="height: 220px" name="post_body"> ' . $post_row['body'] . '</textarea>                                                                  
-                            ', "primary", 
-                            '<button type="submit" class="btn btn-primary" id="submit" value="' . $post_row['id'] . '" name="post_update">Ndrysho</button>');
+                            ',
+                                "primary",
+                                '<button type="submit" class="btn btn-primary" id="submit" value="' . $post_row['id'] . '" name="post_update">Ndrysho</button>'
+                            );
                         }
                     }
 
                     ?>
-
                 </tbody>
             </table>
         </div>
