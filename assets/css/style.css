@@ -62,7 +62,7 @@ h3.tittle {
     overflow-x: auto;
 }
 
-.table-img{
+.table-img {
     width: 50px;
     height: 50px;
 }
@@ -316,17 +316,43 @@ footer {
 }
 
 
+/************* Profile *************/
+.user-profile .card {
+    width: 500px;
+    border: none;
+    border-radius: 10px;
+    background-color: #fff
+}
+
+.user-profile .stats {
+    background: #f2f5f8 !important;
+    color: #000 !important
+}
+
+.user-profile .articles {
+    font-size: 10px;
+    color: #a1aab9
+}
+
+.user-profile .number {
+    font-weight: 500
+}
+
+.user-profile .card .span_username {
+    color: #777777;
+}
+
+
 
 /************* Media Query *************/
 @media(max-width:992px) {}
+
 
 @media(max-width:1200px) {
     .col-cart-body .card {
         width: 12.3rem;
     }
 }
-
-
 
 @media(max-width:767px) {
 
@@ -370,6 +396,22 @@ footer {
         width: 16rem;
         padding-right: 0.10rem;
         padding-left: 0.10rem;
+    }
+
+    .user-profile .card img {
+        width: 110px;
+        margin: auto;
+    }
+
+    .user-profile .card {
+        display: flex;
+        flex-wrap: wrap;
+        text-align: center;
+    }
+
+    .user-profile .media {
+        flex-wrap: wrap;
+        margin: auto;
     }
 }
 

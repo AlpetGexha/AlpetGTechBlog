@@ -200,8 +200,13 @@ if (isset($_POST['create_post_submit'])) {
     $p_titulli = mysqli_real_escape_string($db, $_POST['p_titulli']);
     $p_pershkrimi = mysqli_real_escape_string($db, $_POST['p_pershkrimi']);
     $p_kategorit = mysqli_real_escape_string($db, $_POST['p_kategorit']);
-    //$u_id = mysqli_real_escape_string($db, $_SESSION['id']);
+    $u_id = mysqli_real_escape_string($db, $_SESSION['username']);
 
+    //Marrja e id nga useri 
+    $sql = "SELECT id from users where username='$u_id'";
+    $results = mysqli_query($db, $sql);
+    $row = $results->fetch_assoc();
+    $user_id = $row['id'];
     //Image name
     $fileName = mysqli_real_escape_string($db, basename($_FILES["image"]["name"]));
     //shto extension
@@ -222,7 +227,7 @@ if (isset($_POST['create_post_submit'])) {
             if ($_FILES['image']['size'] < 10485760) {
                 //compressImage($_FILES["image"]["tmp_name"], $fileDestination, 60);
                 // Insert ne databases
-                $insert = "INSERT INTO post (titulli,body,category,photo)VALUES('$p_titulli','$p_pershkrimi','$p_kategorit','$fileNameNew')";
+                $insert = "INSERT INTO post (userid,titulli,body,category,photo)VALUES('$user_id','$p_titulli','$p_pershkrimi','$p_kategorit','$fileNameNew')";
                 mysqli_query($db, $insert);
                 if ($insert) {
                     $msg = "Postimi  u postua";
@@ -297,6 +302,7 @@ if (isset($_POST['login_submit'])) {
         $_SESSION['loggedIn'] = true;
         $_SESSION['ROLE'] = $row['role'];
         header('Location:admin/admin_post.php');
+       
     } else {
         $msg = "Fjalekalimi &euml;sht&euml; gabim!";
     }
