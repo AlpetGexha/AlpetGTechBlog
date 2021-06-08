@@ -24,7 +24,7 @@ $row = $result->fetch_assoc();
                 <div class="row">
                     <?php
                     $k_id = $row['id'];
-                    get_kategori_post("post", $k_id);
+                    get_post_id("post", "category", $k_id);
                     ?>
                 </div>
             </div>

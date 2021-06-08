@@ -116,11 +116,13 @@ function get_post($table)
 }
 
 
+
+
 //trego te gjitha postimet ne kategorin e caktuar(category.php)
-function get_kategori_post($table, $id)
+function get_post_id($table, $id1, $id2)
 {
     require("database/config.php");
-    $sql = "SELECT * FROM $table WHERE category='$id' ORDER BY id DESC";
+    $sql = "SELECT * FROM $table WHERE $id1='$id2' ORDER BY id DESC";
     if ($result = mysqli_query($db, $sql)) {
         $rowcount = mysqli_num_rows($result);
         if ($rowcount == 0) {
@@ -128,22 +130,22 @@ function get_kategori_post($table, $id)
         }
         foreach ($result as $categories => $row) {
             echo '
-                <div class="col-md-6 d-flex justify-content-center col-cart-body">
+                <div class="col-sm-4 col-cart-body d-flex flex-wrap justify-content-center">
                     <div class="">
-                        <div class="card mt-3" style="width: 18rem;">
+                        <div class="card mt-3">
                             <a href="postim.php?id=' . $row['id'] . '">
-                                <img src="assets/img/post/' . $row['photo'] . '" class="card-img-top" alt="Foto">
+                                <img src="assets/img/post/' . $row['photo'] . ' " class="card-img-top" alt="Foto">
                             </a>
                             <div class="card-body">
                             <i class="far fa-clock"></i>' . date('j F, Y ', strtotime($row['date']))  . '
                             <i class="far fa-eye fa-x2"></i> ' . $row['views'] . '
                                 <h5 class="card-title"><a href="postim.php?id=' . $row['id'] . '">' . $row['titulli'] . '</a></h5>
-                                <a" href="postim.php?id=' . $row['id'] . '"><p> ' . $row['body'] . ' </p></a>
-                                    <a class="btn btn-success" href="postim.php?id=' . $row['id'] . '">Meso m&euml; Shum&euml;</a>
+                                <a" href="postim.php?id=' . $row['id'] . '"><p class="body-text"> ' . $row['body'] . ' </p></a>                                
+                                <a class="btn btn-success btn-submit" href="postim.php?id=' . $row['id'] . '">Meso m&euml; Shum&euml;</a>
                             </div>
                         </div>
                     </div>
-                </div>  
+                </div>
             ';
         }
     }
@@ -302,7 +304,6 @@ if (isset($_POST['login_submit'])) {
         $_SESSION['loggedIn'] = true;
         $_SESSION['ROLE'] = $row['role'];
         header('Location:admin/admin_post.php');
-       
     } else {
         $msg = "Fjalekalimi &euml;sht&euml; gabim!";
     }
