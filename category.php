@@ -11,7 +11,7 @@ $row = $result->fetch_assoc();
 
 <ol class="breadcrumb">
     <li class="breadcrumb-item">
-        <a href="index.php" style="color: #333 !important;">Home</a>
+        <a href="index.php" style="color: #333 !important;">Ballina</a>
     </li>
     <li class=" breadcrumb-item active" style="color: #01cd74 !important;"><?php echo $row['emri']; ?></li>
 </ol>
