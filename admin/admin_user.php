@@ -4,6 +4,7 @@ $msg = "";
 include "../server.php";
 include "../database/config.php";
 IamAdmin();
+
 ?>
 
 

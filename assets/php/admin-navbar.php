@@ -24,6 +24,24 @@ $row_admin = $results_admin->fetch_assoc();
             <div class="sb-sidenav-menu">
                 <div class="nav sticky-top">
                     <div class="sb-sidenav-menu-heading">Main</div>
+
+
+                    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages" aria-expanded="false" aria-controls="collapsePages">
+                        <div class="sb-nav-link-icon"><i class="fas fa-tools"></i></div>
+                        Profiles
+                        <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                    </a>
+                    <div class="collapse" id="collapsePages" aria-labelledby="headingTwo" data-parent="#sidenavAccordion">
+                        <nav class="sb-sidenav-menu-nested nav accordion" id="sidenavAccordionPages">
+                            <a class="nav-link" href="../admin/profile.php">
+                                Profile
+                            </a>
+                            <a class="nav-link" href="">
+                                
+                            </a>
+                        </nav>
+                    </div>
+
                     <a class="nav-link" href="../admin/admin_user.php">
                         <div class="sb-nav-link-icon"><i class="fas fa-users"></i></div>
                         P&euml;doruesits

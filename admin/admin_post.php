@@ -22,7 +22,10 @@ IamAdmin();
 </div>';
         }
         ?>
+
+
         <h3 class="title">Postime</h3>
+
         <div class="r-table">
             <table class="table table-striped table-hover">
                 <thead>
