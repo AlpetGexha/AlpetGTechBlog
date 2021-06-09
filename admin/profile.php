@@ -27,7 +27,7 @@ ob_start();
                                         <div class="col-12 col-sm-auto mb-3">
                                             <div class="mx-auto" style="width: 140px;">
                                                 <div class="d-flex justify-content-center align-items-center rounded">
-                                                    <img src="../assets/img/logo.jpg" alt="" width="140px" height="140px">
+                                                    <img class="rounded-circle" src="../assets/img/logo.jpg" alt="" width="140px" height="140px">
                                                 </div>
                                             </div>
                                         </div>
@@ -88,42 +88,49 @@ ob_start();
                                                                 </div>
                                                             </div>
                                                         </div> -->
+                                                        <div class="row">
+                                                            <div class="col d-flex justify-content-end">
+                                                                <button class="btn btn-primary" type="submit" name="profile_edit_submit">Ndrysho profilin</button>
+                                                            </div>
+                                                        </div>
                                                     </div>
                                                 </div>
+
                                                 <div class="row">
                                                     <div class="col-12 col-sm-6 mb-3">
-                                                        <div class="mb-2"><b>Change Password</b></div>
+                                                        <div class="mb-2"><b>Ndrysho Fjal&euml;kalimin</b></div>
                                                         <div class="row">
                                                             <div class="col">
                                                                 <div class="form-group">
-                                                                    <label>Current Password</label>
-                                                                    <input class="form-control" type="password" placeholder="••••••">
+                                                                    <label>Fjal&euml;kalimin Momental</label>
+                                                                    <input class="form-control" type="password" placeholder="••••••" name="momental_password">
                                                                 </div>
                                                             </div>
                                                         </div>
                                                         <div class="row">
                                                             <div class="col">
                                                                 <div class="form-group">
-                                                                    <label>New Password</label>
-                                                                    <input class="form-control" type="password" placeholder="••••••">
+                                                                    <label>Fjal&euml;kalimin i ri</label>
+                                                                    <input class="form-control" type="password" placeholder="••••••" name="new_password">
                                                                 </div>
                                                             </div>
                                                         </div>
                                                         <div class="row">
                                                             <div class="col">
                                                                 <div class="form-group">
-                                                                    <label>Confirm <span class="d-none d-xl-inline">Password</span></label>
-                                                                    <input class="form-control" type="password" placeholder="••••••">
+                                                                    <label>Konfirmoni <span class="d-none d-xl-inline">Fjal&euml;kalimin</span></label>
+                                                                    <input class="form-control" type="password" placeholder="••••••" name="confirm_password">
+                                                                </div>
+                                                            </div>
+                                                            <div class="row">
+                                                                <div class="col d-flex justify-content-end">
+                                                                    <button class="btn btn-primary" type="submit" name="profile_edit_submit">Ndrysho Passwordin</button>
                                                                 </div>
                                                             </div>
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <div class="row">
-                                                    <div class="col d-flex justify-content-end">
-                                                        <button class="btn btn-primary" type="submit">Save Changes</button>
-                                                    </div>
-                                                </div>
+
                                             </form>
 
                                         </div>
