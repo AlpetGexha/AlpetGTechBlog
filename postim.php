@@ -6,15 +6,20 @@ $id = $_REQUEST['id'];
 //rrit viewsat per 1 pas cdo shikimi
 mysqli_query($db, "UPDATE post set views = views +1  WHERE id ='$id' ");
 
-$sql = "SELECT * from post where id='$id'";
+// $u_sql = "SELECT * from users where id = '$id' ";
+// $u_result = mysqli_query($db, $u_sql);
+// $u_row = $u_result->fetch_assoc();
+// $user_id = $u_row['id'];
+// echo $user_id;
+
+$sql = "SELECT p.id,p.photo,p.date,p.views,p.titulli,p.body,p.category ,u.username , p.userid FROM users u, post p WHERE p.userid = u.id  and p.id = '$id' ORDER BY id DESC ";
 $result = mysqli_query($db, $sql);
 $row = $result->fetch_assoc();
 $c_category = $row['category'];
 
-$c_sql = "SELECT * from post_categories where id = '$c_category'";
+$c_sql = "SELECT * from post_categories where id = '$c_category' ";
 $c_result = mysqli_query($db, $c_sql);
 $c_row = $c_result->fetch_assoc();
-
 
 
 ?>
@@ -41,9 +46,10 @@ $c_row = $c_result->fetch_assoc();
                     <div class="single_post_info_show">
                         <ul>
                             <li>
-                                <a href="#">
+                                 <a href="user.php?id= <?php echo $row['userid']?> ">
                                     <i class="far fa-calendar-alt"></i><?php echo  date('j F, Y ', strtotime($row['date'])) ?>
                                     <i class="far fa-eye fa-x2"></i><?php echo $row['views']; ?>
+                                    <i class="far fa-user fa-x2"></i><?php echo $row['username']; ?>
                                 </a>
                             </li>
 

@@ -11,7 +11,7 @@
             <div class="">
                 <div class="row">
                     <?php //PostStyle::get_post("post");
-                    get_post("post"); ?>
+                    get_post(); ?>
                 </div>
             </div>
         </div>

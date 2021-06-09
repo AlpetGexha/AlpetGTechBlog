@@ -79,10 +79,10 @@ function get_kadegoirt($table, $table1)
 
 
 //trego te gjitha postimet(index.php)
-function get_post($table)
+function get_post()
 {
     require("database/config.php");
-    $sql = "SELECT * FROM $table ORDER BY id DESC ";
+    $sql = "SELECT p.id,p.photo,p.date,p.views,p.titulli,p.body, u.username , p.userid FROM users u, post p WHERE p.userid = u.id ORDER BY id DESC ";
     if ($result = mysqli_query($db, $sql)) {
         //Nese nuk ka postime 
         $rowcount = mysqli_num_rows($result);
@@ -90,7 +90,7 @@ function get_post($table)
         if ($rowcount == 0) {
             echo 'Nuk ka Poste "width:350px;height:250px';
         }
-        foreach ($result as $key => $row) {
+        foreach ($result as $key => $row) { 
             echo '
                 <div class="col-sm-4 col-cart-body d-flex flex-wrap justify-content-center">
                     <div class="">
@@ -99,8 +99,9 @@ function get_post($table)
                                 <img src="assets/img/post/' . $row['photo'] . ' " class="card-img-top" alt="Foto">
                             </a>
                             <div class="card-body">
-                            <i class="far fa-clock"></i>' . date('j F, Y ', strtotime($row['date']))  . '
-                            <i class="far fa-eye fa-x2"></i> ' . $row['views'] . '
+                            <i class="far fa-clock"></i>' . date('j F, Y ', strtotime($row['date']))  . '/
+                            <i class="far fa-eye fa-x2"></i> ' . $row['views'] . '/
+                           <a href="user.php?id=' . $row['userid'] . '" <i class="far fa-user fa-x2"></i> ' . $row['username'] . '<a>
                                 <h5 class="card-title"><a href="postim.php?id=' . $row['id'] . '">' . $row['titulli'] . '</a></h5>
                                 <a" href="postim.php?id=' . $row['id'] . '"><p class="body-text"> ' . $row['body'] . ' </p></a>                                
                                 <a class="btn btn-success btn-submit" href="postim.php?id=' . $row['id'] . '">Meso m&euml; Shum&euml;</a>

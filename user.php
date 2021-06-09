@@ -8,8 +8,8 @@ $row = $result->fetch_assoc();
 
 $sql1 = "SELECT * from post where userid='$id'";
 $result1 = mysqli_query($db, $sql1);
-
 $rowcountkategorit = mysqli_num_rows($result1);
+
 ob_start();
 ?>
 

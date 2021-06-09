@@ -2,6 +2,12 @@
 include "server.php";
 include "database/config.php";
 $id = $_REQUEST['id'];
+
+
+$sql = "SELECT * from users where id='$id'";
+$result = mysqli_query($db, $sql);
+$row1 = $result->fetch_assoc();
+
 $sql = "SELECT * from post_categories where id='$id'";
 $result = mysqli_query($db, $sql);
 $row = $result->fetch_assoc();
@@ -22,7 +28,7 @@ $row = $result->fetch_assoc();
         <div class="col-lg-8 text-left">
             <div class="">
                 <div class="row">
-                    <?php
+                    <?php 
                     $k_id = $row['id'];
                     get_post_id("post", "category", $k_id);
                     ?>
