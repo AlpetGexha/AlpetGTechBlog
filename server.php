@@ -90,7 +90,7 @@ function get_post()
         if ($rowcount == 0) {
             echo 'Nuk ka Poste "width:350px;height:250px';
         }
-        foreach ($result as $key => $row) { 
+        foreach ($result as $key => $row) {
             echo '
                 <div class="col-sm-4 col-cart-body d-flex flex-wrap justify-content-center">
                     <div class="">
@@ -309,7 +309,7 @@ if (isset($_POST['login_submit'])) {
         $msg = "Fjalekalimi &euml;sht&euml; gabim!";
     }
 }
-//****************Post Update ****************//
+//**************** Post Update ****************//
 if (isset($_POST['post_update'])) {
     $id = $_POST['post_update'];
     $titulli = mysqli_real_escape_string($db, $_POST['post_titulli']);
@@ -322,6 +322,56 @@ if (isset($_POST['post_update'])) {
     header("Location:admin/admin_post.php");
 }
 
+//****************Profile Update ****************//
+if (isset($_POST['profile_edit_submit'])) {
+    $id = $_POST['profile_edit_submit'];
+    $emri = mysqli_real_escape_string($db, $_POST['profile_name']);
+    $mbiemri = mysqli_real_escape_string($db, $_POST['profile_surename']);
+
+    //updati nga edit.php 
+    $post_update = "UPDATE users set emri = '$emri', mbiemri = '$mbiemri' where id=$id";
+    mysqli_query($db, $post_update);
+    header("Location:../admin/profile.php?msg=profili_u_ndryshua_me_sukses");
+
+}
+
+
+//**************** User Password Update ****************//
+if (isset($_POST['user_password_edit'])) {
+    $user = $_SESSION['username'];
+
+    if ($user) {
+        $password = mysqli_real_escape_string($db, $_POST['momental_password']);
+        $new_password = $_POST['new_password'];
+        $continiu_password = $_POST['confirm_password'];
+
+        $sql = ("SELECT password FROM users where username='$user'");
+        $results = mysqli_query($db, $sql);
+        $row = $results->fetch_assoc();
+        $db_password = $row['password'];
+        $passwordlength = strlen($new_password);
+        if ($passwordlength < 6) {
+            $msg = " Fjalëkalimi duhet të jetë së paku 6 karaktere";
+        } else {
+            if (password_verify($password, $db_password) == 1) {
+
+                if ($new_password == $continiu_password) {
+                    $new_password_hash = password_hash($new_password, PASSWORD_DEFAULT);
+                    $update_password =  "UPDATE users SET password='$new_password_hash' WHERE username='$user'";
+                    mysqli_query($db, $update_password);
+                    header("Location:../admin/profile.php?msg=Passwordi_u_ndryshua_me_sukses" );
+                    $msg = "Passwordi u ndryshua me sukses";
+                } else {
+
+                    $msg = "Rishruaj passwordin momental";
+                }
+            } else {
+
+                $msg = "Passwordi momental &euml;dh&euml; gabim";
+            }
+        }
+    }
+}
 
 
 //compressImage function

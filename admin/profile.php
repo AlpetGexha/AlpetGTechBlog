@@ -16,15 +16,33 @@ ob_start();
 <div id="layoutSidenav_content">
 
     <div class="container mt-5">
+
         <div class="row flex-lg-nowrap mt-3">
             <div class="col">
                 <div class="row">
                     <div class="col mb-3">
                         <div class="card">
                             <div class="card-body">
+
+
+                                <?php
+                                if (!empty($msg)) {
+                                ?>
+                                    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                                        <strong><?php echo $msg; ?> </strong>
+                                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                <?php
+                                }
+                                ?>
+
+
                                 <div class="e-profile">
                                     <div class="row">
                                         <div class="col-12 col-sm-auto mb-3">
+
                                             <div class="mx-auto" style="width: 140px;">
                                                 <div class="d-flex justify-content-center align-items-center rounded">
                                                     <img class="rounded-circle" src="../assets/img/logo.jpg" alt="" width="140px" height="140px">
@@ -90,7 +108,7 @@ ob_start();
                                                         </div> -->
                                                         <div class="row">
                                                             <div class="col d-flex justify-content-end">
-                                                                <button class="btn btn-primary" type="submit" name="profile_edit_submit">Ndrysho profilin</button>
+                                                                <button class="btn btn-primary" type="submit" name="profile_edit_submit" value="<?php echo $row['id']; ?>">Ndrysho profilin</button>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -124,15 +142,13 @@ ob_start();
                                                             </div>
                                                             <div class="row">
                                                                 <div class="col d-flex justify-content-end">
-                                                                    <button class="btn btn-primary" type="submit" name="profile_edit_submit">Ndrysho Passwordin</button>
+                                                                    <button class="btn btn-primary" type="submit" name="user_password_edit" value="<?php echo $row['id']; ?>">Ndrysho Passwordin</button>
                                                                 </div>
                                                             </div>
                                                         </div>
                                                     </div>
                                                 </div>
-
                                             </form>
-
                                         </div>
                                     </div>
                                 </div>
