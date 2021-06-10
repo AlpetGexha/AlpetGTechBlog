@@ -66,7 +66,7 @@ IamAdmin();
                             get_modal(
                                 "edit_" . $post_row["id"],
                                 "../server.php",
-                                "Kujedes",
+                                "Ndryshimi i postinit",
                                 '
                                 <form action="../server.php" method="POST">
                                     <h6>Titulli</h6>
