@@ -4,6 +4,9 @@ include "class.php";
 session_start();
 ob_start();
 
+
+setlocale(LC_TIME, array('da_DA.UTF-8', 'da_DA@euro', 'da_DA', 'Albanian'));
+
 //headeri
 function get_header($title_bar)
 {
@@ -85,21 +88,23 @@ function get_post()
     $sql = "SELECT p.id,p.photo,p.date,p.views,p.titulli,p.body, u.username , p.userid FROM users u, post p WHERE p.userid = u.id ORDER BY id DESC ";
     if ($result = mysqli_query($db, $sql)) {
         //Nese nuk ka postime 
+       // ucfirst
         $rowcount = mysqli_num_rows($result);
 
         if ($rowcount == 0) {
             echo 'Nuk ka Poste "width:350px;height:250px';
         }
         foreach ($result as $key => $row) {
+            
             echo '
                 <div class="col-sm-4 col-cart-body d-flex flex-wrap justify-content-center">
                     <div class="">
                         <div class="card mt-3">
-                            <a href="postim.php?id=' . $row['id'] . '">
+                            <a href="postim.php?id=' . $row['id'] . '"> 
                                 <img src="assets/img/post/' . $row['photo'] . ' " class="card-img-top" alt="Foto">
                             </a>
                             <div class="card-body">
-                            <i class="far fa-clock"></i>' . date('j F, Y ', strtotime($row['date']))  . '/
+                            <i class="far fa-clock"></i>' . strftime('%e %B, %Y', strtotime($row['date']))  . '/
                             <i class="far fa-eye fa-x2"></i> ' . $row['views'] . '/
                            <a href="user.php?id=' . $row['userid'] . '" <i class="far fa-user fa-x2"></i> ' . $row['username'] . '<a>
                                 <h5 class="card-title"><a href="postim.php?id=' . $row['id'] . '">' . $row['titulli'] . '</a></h5>
@@ -138,7 +143,7 @@ function get_post_id($table, $id1, $id2)
                                 <img src="assets/img/post/' . $row['photo'] . ' " class="card-img-top" alt="Foto">
                             </a>
                             <div class="card-body">
-                            <i class="far fa-clock"></i>' . date('j F, Y ', strtotime($row['date']))  . '
+                            <i class="far fa-clock"></i>' . strftime('%e %B, %Y', strtotime($row['date']))   . '
                             <i class="far fa-eye fa-x2"></i> ' . $row['views'] . '
                                 <h5 class="card-title"><a href="postim.php?id=' . $row['id'] . '">' . $row['titulli'] . '</a></h5>
                                 <a" href="postim.php?id=' . $row['id'] . '"><p class="body-text"> ' . $row['body'] . ' </p></a>                                

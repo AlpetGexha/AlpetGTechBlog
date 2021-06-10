@@ -47,7 +47,7 @@ $c_row = $c_result->fetch_assoc();
                         <ul>
                             <li>
                                  <a href="user.php?id= <?php echo $row['userid']?> ">
-                                    <i class="far fa-calendar-alt"></i><?php echo  date('j F, Y ', strtotime($row['date'])) ?>
+                                    <i class="far fa-calendar-alt"></i><?php echo strftime('%e %B, %Y', strtotime($row['date']))  ?>
                                     <i class="far fa-eye fa-x2"></i><?php echo $row['views']; ?>
                                     <i class="far fa-user fa-x2"></i><?php echo $row['username']; ?>
                                 </a>

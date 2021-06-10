@@ -47,7 +47,7 @@ get_header("K&euml;rkimi - $search ");
                                         <img src="assets/img/post/' . $row['photo'] . '" class="card-img-top" alt="Foto">
                                     </a>
                                     <div class="card-body">
-                                    <i class="far fa-clock"></i>' . date('j F, Y ', strtotime($row['date']))  . '
+                                    <i class="far fa-clock"></i>' . strftime('%e %B, %Y', strtotime($row['date']))   . '
                                     <i class="far fa-eye fa-x2"></i> ' . $row['views'] . '
                                         <h5 class="card-title"><a href="postim.php?id=' . $row['id'] . '">' . $row['titulli'] . '</a></h5>
                                         <a" href="postim.php?id=' . $row['id'] . '"><p> ' . $row['body'] . ' </p></a>

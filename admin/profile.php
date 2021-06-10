@@ -66,7 +66,7 @@ ob_start();
                                                     echo  ' <span class="badge badge-danger">' . $row['role'] . '</span> ';
                                                 }
                                                 ?>
-                                                <div class="text-muted"><small>Antar q&euml; nga: <i><?php echo date('j F, Y', strtotime($row['j_data']));  ?></i></small></div>
+                                                <div class="text-muted"><small>Antar q&euml; nga: <i><?php echo strftime('%e %B'."-i".', %Y, %T %p' , strtotime($row['j_data'])) ?></i></small></div>
                                             </div>
                                         </div>
                                     </div>
