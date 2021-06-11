@@ -11,7 +11,7 @@ $row = $result->fetch_assoc();
 ob_start();
 ?>
 
-<?php get_Aheader("Post Admin"); ?>
+<?php get_Aheader("User Profile Admin"); ?>
 
 <div id="layoutSidenav_content">
 
