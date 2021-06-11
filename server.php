@@ -169,10 +169,7 @@ function get_Aheader($title_bar)
     include "../assets/php/admin-navbar.php"; //navbari
 }
 
-function get_modal_button($m_id)
-{
-    echo ' <td> <a class="btn btn-danger"  data-toggle="modal" data-target="#modal_' . $m_id . ' ">Fshije</a><td> ';
-}
+
 
 function get_modal($m_id, $path, $title, $text, $color, $btn_text)
 {
@@ -193,7 +190,6 @@ function get_modal($m_id, $path, $title, $text, $color, $btn_text)
                 <a  href="' . $path . '? id= ' . $m_id . '"class="btn btn-' . $color . '"id="delete_btn"  >' . $btn_text . '</a>
                 </div>
             </div>
-    </form>
             </div>
         </div>
         </div>

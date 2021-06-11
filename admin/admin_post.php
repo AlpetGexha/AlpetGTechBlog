@@ -10,6 +10,18 @@ IamAdmin();
 
 <div id="layoutSidenav_content">
 
+    <style>
+        .modal_end {
+            display: flex;
+            flex-wrap: wrap;
+            flex-shrink: 0;
+            align-items: center;
+            justify-content: flex-end;
+            padding: 0.75rem;
+        }
+
+    </style>
+
     <div class="container-fluid mt-5 h-100">
         <?php
         if (!empty($msg)) {
@@ -72,10 +84,16 @@ IamAdmin();
                                     <h6>Titulli</h6>
                                         <input type="text" class="form-control" name="post_titulli" autofocus="" required="" value="' . $post_row['titulli'] . '">
                                     <h6>Teksti</h6>
-                                    <textarea class="form-control" required="" placeholder="" id="floatingTextarea2" style="height: 220px" name="post_body"> ' . $post_row['body'] . '</textarea>                                                                  
+                                    <textarea class="form-control" required="" placeholder="" id="floatingTextarea2" style="height: 220px" name="post_body"> ' . $post_row['body'] .
+                                    '</textarea>  
+                                    <div class="modal_end">
+                                    <button type="submit" class="btn btn-primary" id="submit" value="' . $post_row['id'] . '" name="post_update">Ndrysho</button>   
+                                    </div>         
+                                      
+                                    </form>                                                 
                             ',
                                 "primary",
-                                '<button type="submit" class="btn btn-primary" id="submit" value="' . $post_row['id'] . '" name="post_update">Ndrysho</button>'
+                                ' <style>.modal-footer{display: none;}</style> '
                             );
                         }
                     }
