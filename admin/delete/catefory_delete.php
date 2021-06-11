@@ -1,6 +1,8 @@
 <?php
-
 include "../../database/config.php";
+include "../../server.php";
+IamAdmin();
+
 if (isset($_GET['id'])) {
     $id = $_GET['id'];
 
