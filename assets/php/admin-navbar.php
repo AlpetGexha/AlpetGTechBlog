@@ -26,13 +26,13 @@ $row_admin = $results_admin->fetch_assoc();
                     <div class="sb-sidenav-menu-heading">Main</div>
 
 
-                    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages" aria-expanded="false" aria-controls="collapsePages">
+                    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages1" aria-expanded="false" aria-controls="collapsePages1">
                         <div class="sb-nav-link-icon"><i class="fas fa-tools"></i></div>
                         Profiles
                         <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                     </a>
-                    <div class="collapse" id="collapsePages" aria-labelledby="headingTwo" data-parent="#sidenavAccordion">
-                        <nav class="sb-sidenav-menu-nested nav accordion" id="sidenavAccordionPages">
+                    <div class="collapse" id="collapsePages1" aria-labelledby="headingTwo" data-parent="#sidenavAccordion">
+                        <nav class="sb-sidenav-menu-nested nav accordion" id="sidenavAccordionPages">   
                             <a class="nav-link" href="../admin/profile.php">
                                 Profile
                             </a>
@@ -40,7 +40,7 @@ $row_admin = $results_admin->fetch_assoc();
                                 
                             </a>
                         </nav>
-                    </div>
+                    </div>  
 
                     <a class="nav-link" href="../admin/admin_user.php">
                         <div class="sb-nav-link-icon"><i class="fas fa-users"></i></div>
@@ -62,12 +62,12 @@ $row_admin = $results_admin->fetch_assoc();
                             </a>  -->
                     <div class="sb-sidenav-menu-heading">Shto</div>
 
-                    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages" aria-expanded="false" aria-controls="collapsePages">
+                    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages2" aria-expanded="false" aria-controls="collapsePages2">
                         <div class="sb-nav-link-icon"><i class="fas fa-tools"></i></div>
                         Krijoni
                         <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                     </a>
-                    <div class="collapse" id="collapsePages" aria-labelledby="headingTwo" data-parent="#sidenavAccordion">
+                    <div class="collapse" id="collapsePages2" aria-labelledby="headingTwo" data-parent="#sidenavAccordion">
                         <nav class="sb-sidenav-menu-nested nav accordion" id="sidenavAccordionPages">
                             <a class="nav-link" href="../admin/create_post.php">
                                 Postime
