@@ -377,14 +377,12 @@ if (isset($_POST['user_password_edit'])) {
 //****************Profil Photo Update****************//
 if (isset($_POST['photo_update_submit'])) {
 
-
     $fileName = mysqli_real_escape_string($db, basename($_FILES["image"]["name"]));
 
     $fileAcualeExt = strtolower(end(explode('.', $fileName)));
     $fileNameNew =  "AlpetGBlogUser" . uniqid('.', true) . "." . $fileAcualeExt;
 
     $fileDestination = "../assets/img/user/" . $fileNameNew;
-
 
     $allowTypes = array('jpg', 'JPG', 'png', 'PNG', 'jpeg', 'JPEG', 'gif');
 
@@ -396,10 +394,11 @@ if (isset($_POST['photo_update_submit'])) {
             if ($_FILES['image']['size'] < 10485760) {
                 //compressImage($_FILES["image"]["tmp_name"], $fileDestination, 60);
                 // Insert ne databases
+                
                 $sql2 = "UPDATE users SET image = '" . $fileNameNew . "' WHERE username = '" . $_SESSION['username'] . "'";
                 mysqli_query($db, $sql2);
                 if ($sql2) {
-                    header("Location:profile.php");
+                    header("Location:profile.php?msg=foto_u_ndryshua_me_sukses ");
                 } else {
                     $msg = "Ngarkimi i fotografis&euml; d&euml;shtoi, ju lutemi provoni p&euml;rs&euml;ri";
                 }
