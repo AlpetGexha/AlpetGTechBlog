@@ -29,7 +29,7 @@ ob_start();
         <div class="container m-auto mt-5 d-flex justify-content-center">
             <div class="card p-3">
                 <div class="media d-flex align-items-center">
-                    <img src="assets/img/logo.jpg" class="rounded-circle" width="155">
+                    <img src="<?php echo "assets/img/user/" . $row['image'] . " " ?>" class="rounded-circle" width="155">
                     <div class="ml-3 w-100">
                         <h4 class="mb-1 mt-1"><?php echo " " . $row['emri']  . " " . $row['mbiemri'] . " " ?></h4> <span class="span_username"><?php echo "@" . strtolower($row['username']) . "  " ?></span>
                         <div class="p-2 mt-2 bg-primary d-flex justify-content-between rounded text-white stats">

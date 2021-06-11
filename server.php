@@ -88,14 +88,14 @@ function get_post()
     $sql = "SELECT p.id,p.photo,p.date,p.views,p.titulli,p.body, u.username , p.userid FROM users u, post p WHERE p.userid = u.id ORDER BY id DESC ";
     if ($result = mysqli_query($db, $sql)) {
         //Nese nuk ka postime 
-       // ucfirst
+        // ucfirst
         $rowcount = mysqli_num_rows($result);
 
         if ($rowcount == 0) {
             echo 'Nuk ka Poste "width:350px;height:250px';
         }
         foreach ($result as $key => $row) {
-            
+
             echo '
                 <div class="col-sm-4 col-cart-body d-flex flex-wrap justify-content-center">
                     <div class="">
@@ -333,7 +333,6 @@ if (isset($_POST['profile_edit_submit'])) {
     $post_update = "UPDATE users set emri = '$emri', mbiemri = '$mbiemri' where id=$id";
     mysqli_query($db, $post_update);
     header("Location:../admin/profile.php?msg=profili_u_ndryshua_me_sukses");
-
 }
 
 
@@ -360,7 +359,7 @@ if (isset($_POST['user_password_edit'])) {
                     $new_password_hash = password_hash($new_password, PASSWORD_DEFAULT);
                     $update_password =  "UPDATE users SET password='$new_password_hash' WHERE username='$user'";
                     mysqli_query($db, $update_password);
-                    header("Location:../admin/profile.php?msg=Passwordi_u_ndryshua_me_sukses" );
+                    header("Location:../admin/profile.php?msg=Passwordi_u_ndryshua_me_sukses");
                     $msg = "Passwordi u ndryshua me sukses";
                 } else {
 
@@ -373,6 +372,49 @@ if (isset($_POST['user_password_edit'])) {
         }
     }
 }
+
+
+//****************Profil Photo Update****************//
+if (isset($_POST['photo_update_submit'])) {
+
+
+    $fileName = mysqli_real_escape_string($db, basename($_FILES["image"]["name"]));
+
+    $fileAcualeExt = strtolower(end(explode('.', $fileName)));
+    $fileNameNew =  "AlpetGBlogUser" . uniqid('.', true) . "." . $fileAcualeExt;
+
+    $fileDestination = "../assets/img/user/" . $fileNameNew;
+
+
+    $allowTypes = array('jpg', 'JPG', 'png', 'PNG', 'jpeg', 'JPEG', 'gif');
+
+    if (in_array($fileAcualeExt, $allowTypes)) {
+
+        // Upload image s
+        if (move_uploaded_file($_FILES["image"]["tmp_name"], $fileDestination)) {
+
+            if ($_FILES['image']['size'] < 10485760) {
+                //compressImage($_FILES["image"]["tmp_name"], $fileDestination, 60);
+                // Insert ne databases
+                $sql2 = "UPDATE users SET image = '" . $fileNameNew . "' WHERE username = '" . $_SESSION['username'] . "'";
+                mysqli_query($db, $sql2);
+                if ($sql2) {
+                    header("Location:profile.php");
+                } else {
+                    $msg = "Ngarkimi i fotografis&euml; d&euml;shtoi, ju lutemi provoni p&euml;rs&euml;ri";
+                }
+            } else {
+                $msg = "Foto &euml;sht&euml; shum&euml; e madhe. MAXIMUMI 10mb";
+            }
+        }
+    } else {
+        $msg = 'Vet&euml;m FOTO( JPG, JPEG, PNG, & GIF) lejohen t&euml; ngarkohen.';
+    }
+}
+
+
+
+
 
 
 //compressImage function
