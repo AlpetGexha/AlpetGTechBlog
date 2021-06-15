@@ -19,7 +19,6 @@ IamAdmin();
             justify-content: flex-end;
             padding: 0.75rem;
         }
-
     </style>
 
     <div class="container-fluid mt-5 h-100">
@@ -82,8 +81,8 @@ IamAdmin();
                                 '
                                 <form action="../server.php" method="POST">
                                     <h6>Titulli</h6>
-                                        <input type="text" class="form-control" name="post_titulli" autofocus="" required="" value="' . $post_row['titulli'] . '">
-                                    <h6>Teksti</h6>
+                                        <input type="text" class="form-control mt-2" name="post_titulli" autofocus="" required="" value="' . $post_row['titulli'] . '">
+                                    <h6 class="mt-4">Teksti</h6>
                                     <textarea class="form-control" required="" placeholder="" id="floatingTextarea2" style="height: 220px" name="post_body"> ' . $post_row['body'] .
                                     '</textarea>  
                                     <div class="modal_end">
