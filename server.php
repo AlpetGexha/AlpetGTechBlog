@@ -1,6 +1,5 @@
 <?php
 include "database/config.php";
-include "class.php";
 session_start();
 ob_start();
 

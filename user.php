@@ -37,28 +37,29 @@ ob_start();
                             <div class="d-flex flex-column"> <span class="articles">Loream</span> <span class="number">0</span> </div>
                             <div class="d-flex flex-column"> <span class="articles">Lorem</span> <span class="number">0</span> </div>
                         </div>
+
                         <!-- <div class="button mt-2 d-flex flex-row align-items-center"> <button class="btn btn-sm btn-outline-primary w-100">Chat</button> <button class="btn btn-sm btn-primary w-100 ml-2">Follow</button> </div> -->
+                        </div>
                     </div>
                 </div>
             </div>
+
         </div>
 
-    </div>
-
-    <div class=" container mt-5">
-        <div class="row">
-            <div class="col-lg-8 text-left">
-                <div class="">
-                    <div class="row">
-                        <?php
-                        $user_id = $row['id'];
-                        get_post_id("post", "userid", $user_id);
-                        ?>
+        <div class=" container mt-5">
+            <div class="row">
+                <div class="col-lg-8 text-left">
+                    <div class="">
+                        <div class="row">
+                            <?php
+                            $user_id = $row['id'];
+                            get_post_id("post", "userid", $user_id);
+                            ?>
+                        </div>
                     </div>
                 </div>
+                <?php get_widget(); ?>
             </div>
-            <?php get_widget(); ?>
         </div>
-    </div>
 
-    <?php get_footer(); ?>
+        <?php get_footer(); ?>

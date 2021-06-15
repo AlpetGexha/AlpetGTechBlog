@@ -1,5 +1,5 @@
 <?php
-
+ob_start();
 $msg = "";
 include "../server.php";
 include "../database/config.php";
@@ -8,7 +8,7 @@ include "../database/config.php";
 $sql = "SELECT u.id, u.emri, u.mbiemri, u.username,u.email,u.j_data, r.role, p.userid,u.image FROM users u, post p, roles r WHERE u.role = r.id ";
 $result = mysqli_query($db, $sql);
 $row = $result->fetch_assoc();
-ob_start();
+
 ?>
 
 <?php get_Aheader("User Profile Admin"); ?>
@@ -110,7 +110,8 @@ ob_start();
                                         </div>
                                     </div>
                                 </div>
-
+                            </form>
+                            <form class="form pt-3" method="POST" action="#">
                                 <div class="row">
                                     <div class="col-12 col-sm-6 mb-3">
                                         <div class="mb-2"><b>Ndrysho Fjal&euml;kalimin</b></div>
@@ -176,9 +177,9 @@ ob_start();
                 </div>
 
 
+            </div>
         </div>
     </div>
-</div>
 
 </div>
 </div>
