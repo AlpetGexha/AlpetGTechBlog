@@ -44,7 +44,7 @@ get_header("K&euml;rkimi - $search ");
                             <div class="">
                                 <div class="card mt-3">
                                     <a href="postim.php?id=' . $row['id'] . '">
-                                        <img src="assets/img/post/' . $row['photo'] . '" class="card-img-top" alt="Foto">
+                                        <img src="assets/img/post/' . $row['photo'] . '" class="card-img-top" alt="Foto" loading="lazy">
                                     </a>
                                     <div class="card-body">
                                     <i class="far fa-clock"></i>' . strftime('%e %B, %Y', strtotime($row['date']))   . '

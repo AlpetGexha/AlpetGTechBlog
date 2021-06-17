@@ -1,5 +1,6 @@
 <?php
 include "database/config.php";
+
 session_start();
 ob_start();
 
@@ -102,7 +103,7 @@ function get_post()
                     <div class="">
                         <div class="card mt-3">
                             <a href="postim.php?id=' . $row['id'] . '"> 
-                                <img src="assets/img/post/' . $row['photo'] . ' " class="card-img-top" alt="Foto">
+                                <img src="assets/img/post/' . $row['photo'] . ' " class="card-img-top" alt="Foto" loading="lazy">
                             </a>
                             <div class="card-body">
                             <i class="far fa-clock"></i>' . strftime('%e %B, %Y', strtotime($row['date']))  . '/
@@ -143,7 +144,7 @@ function get_post_id($table, $id1, $id2)
                     <div class="">
                         <div class="card mt-3">
                             <a href="postim.php?id=' . $row['id'] . '">
-                                <img src="assets/img/post/' . $row['photo'] . ' " class="card-img-top" alt="Foto">
+                                <img src="assets/img/post/' . $row['photo'] . ' " class="card-img-top" alt="Foto" loading="lazy">
                             </a>
                             <div class="card-body">
                             <i class="far fa-clock"></i>' . strftime('%e %B, %Y', strtotime($row['date']))   . '
@@ -187,7 +188,7 @@ function get_modal($modal_name, $m_id, $path, $title, $text, $color, $btn_text, 
                 </button>
             </div>
             <div class="modal-body">
-            <form action="' . $path . '" method="POST">
+            <form action="' . $path . '" method="POST" enctype="multipart/form-data">
                 ' . $text . '
                 <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">JO</button>
@@ -328,7 +329,14 @@ if (isset($_POST['post_update'])) {
     //updati nga edit.php 
     $post_update = "UPDATE post set titulli = '$titulli', body = '$body' where id=$id";
     mysqli_query($db, $post_update);
+   
+
     header("Location:admin/admin_post.php");
+    if($post_update){
+        $msg = "test";  
+    }else {
+        $msg = "jo";
+    }
 }
 
 //****************Profile Update ****************//

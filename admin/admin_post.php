@@ -10,17 +10,6 @@ IamAdmin();
 
 <div id="layoutSidenav_content">
 
-    <style>
-        .modal_end {
-            display: flex;
-            flex-wrap: wrap;
-            flex-shrink: 0;
-            align-items: center;
-            justify-content: flex-end;
-            padding: 0.75rem;
-        }
-    </style>
-
     <div class="container-fluid mt-5 h-100">
         <?php
         if (!empty($msg)) {
@@ -48,7 +37,6 @@ IamAdmin();
                         <th scope="col">Kategoria</th>
                         <th scope="col">Data</th>
                         <th scope="col">Opsionet</th>
-                        <img src="" alt="">
                     </tr>
                 </thead>
 
@@ -63,7 +51,7 @@ IamAdmin();
                             //$ko_row['id']
                             echo ' <tr>
                         <td> ' . $i++ . ' </td> 
-                        <td> <img src="../assets/img/post/' . $post_row['photo'] . '" class="table-img" alt="Foto">  </td>
+                        <td> <img src="../assets/img/post/' . $post_row['photo'] . '" class="table-img" alt="Foto" loading="lazy">  </td>
                         <td> ' . $post_row["titulli"] . ' </td> 
                        <td> <textarea class="" rows="2" cols="40" readonly=""> ' . $post_row["body"] . '</textarea></td>
                        <td> ' . $post_row['emri'] . ' </td> 
@@ -80,9 +68,9 @@ IamAdmin();
                                         <input type="text" class="form-control mt-2" name="post_titulli" autofocus="" required="" value="' . $post_row['titulli'] . '">
                                     <h6 class="mt-4">Teksti</h6>
                                     <textarea class="form-control" required="" placeholder="" id="floatingTextarea2" style="height: 220px" name="post_body"> ' . $post_row['body'] .
-                                '</textarea>       
-                                     <button type="submit" class="btn btn-primary" id="submit" value="' . $post_row['id'] . '" name="post_update">Ndrysho</button>                                                        
-                            ',
+                                '</textarea>
+                                
+                                ',
                                 "primary", ' Ndrysho Postimin ', "post_update"
                             );
                         }

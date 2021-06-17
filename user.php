@@ -29,7 +29,7 @@ ob_start();
         <div class="container m-auto mt-5 d-flex justify-content-center">
             <div class="card p-3">
                 <div class="media d-flex align-items-center">
-                    <img src="<?php echo "assets/img/user/" . $row['image'] . " " ?>" class="rounded-circle" width="155">
+                    <img src="<?php echo "assets/img/user/" . $row['image'] . " " ?>" class="rounded-circle" width="155" loading="lazy">
                     <div class="ml-3 w-100">
                         <h4 class="mb-1 mt-1"><?php echo " " . $row['emri']  . " " . $row['mbiemri'] . " " ?></h4> <span class="span_username"><?php echo "@" . strtolower($row['username']) . "  " ?></span>
                         <div class="p-2 mt-2 bg-primary d-flex justify-content-between rounded text-white stats">
@@ -39,27 +39,27 @@ ob_start();
                         </div>
 
                         <!-- <div class="button mt-2 d-flex flex-row align-items-center"> <button class="btn btn-sm btn-outline-primary w-100">Chat</button> <button class="btn btn-sm btn-primary w-100 ml-2">Follow</button> </div> -->
-                        </div>
                     </div>
                 </div>
             </div>
-
         </div>
 
-        <div class=" container mt-5">
-            <div class="row">
-                <div class="col-lg-8 text-left">
-                    <div class="">
-                        <div class="row">
-                            <?php
-                            $user_id = $row['id'];
-                            get_post_id("post", "userid", $user_id);
-                            ?>
-                        </div>
+    </div>
+
+    <div class=" container mt-5">
+        <div class="row">
+            <div class="col-lg-8 text-left">
+                <div class="">
+                    <div class="row">
+                        <?php
+                        $user_id = $row['id'];
+                        get_post_id("post", "userid", $user_id);
+                        ?>
                     </div>
                 </div>
-                <?php get_widget(); ?>
             </div>
+            <?php get_widget(); ?>
         </div>
+    </div>
 
-        <?php get_footer(); ?>
+    <?php get_footer(); ?>

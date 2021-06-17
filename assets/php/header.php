@@ -13,7 +13,7 @@
         <div class="row">
             <div class="col-md-4 logo text-left">
                 <a style="color:#01cd74;" class="navbar-brand" href="index.php">
-                    <img src="assets/img/logo.jpg" class="fab" style="width: 50px; margin-right:20px;"></img>AlpetG Tech Blog</a>
+                    <img src="assets/img/logo.jpg" class="fab" style="width: 50px; margin-right:20px;" loading="lazy"></img>AlpetG Tech Blog</a>
             </div>
             <div class="col-md-4 top-forms text-center mt-lg-3 mt-md-1 mt-0">
                 <span>Mir&euml;seerdh&euml;t!</span>
