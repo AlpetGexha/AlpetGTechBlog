@@ -9,7 +9,7 @@ IamAdmin();
 
 <div id="layoutSidenav_content">
 
-    <div class="container mt-5 h-100">
+    <div class="container-fluid mt-5 h-100">
         <?php
         if (!empty($msg)) {
             echo '
