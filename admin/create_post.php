@@ -53,16 +53,21 @@ $c_row = $c_result->fetch_assoc();
                                 <label for="floatingTextarea2">Pershkrimi</label>
                             </div>
 
+                            <div class="form-group">
+                                <label>Tags</label>
+                                <input type="text" id="search_data" placeholder="" autocomplete="off" name="p_tags" class="form-control input-lg" />
+                            </div>
+
 
                             <div class="mb-3 p_upload">
                                 <label>Foto</label>
-                                <input class="form-control" type="file" id="formFile" name="image" oninvalid="this.setCustomValidity('Zgjithni Foto');" oninput="this.setCustomValidity('');">
+                                <input class="form-control" type="file" id="formFile" name="image" require="" oninvalid="this.setCustomValidity('Zgjithni Foto');" oninput="this.setCustomValidity('');">
                             </div>
 
                             <div class="form-group">
                                 <label for="disabledTextInput" class="form-label">Kategorit</label>
                                 <select name="p_kategorit" class="custom-select mb-3">
-                                    <option selected disabled required=""> Çfar&euml; kategorie &euml;sht&euml; postimi </option>
+                                    <option disabled required=""> Çfar&euml; kategorie &euml;sht&euml; postimi </option>
                                     <?php
 
                                     foreach ($c_result as $key => $c_row) {
@@ -88,6 +93,18 @@ $c_row = $c_result->fetch_assoc();
     </div>
 
 </div>
+
+
+
+<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-tokenfield/0.12.0/css/bootstrap-tokenfield.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-tokenfield/0.12.0/bootstrap-tokenfield.js"></script>
+
+
+<script>
+    $(document).ready(function() {
+        $('#search_data').tokenfield();
+    });
+</script>
 
 </body>
 

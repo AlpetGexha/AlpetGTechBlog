@@ -230,7 +230,7 @@ if (isset($_POST['create_post_submit'])) {
             if ($_FILES['image']['size'] < 10485760) {
                 //compressImage($_FILES["image"]["tmp_name"], $fileDestination, 60);
                 // Insert ne databases
-                $insert = "INSERT INTO post (userid,titulli,body,category,photo)VALUES('$user_id','$p_titulli','$p_pershkrimi','$p_kategorit','$fileNameNew')";
+                $insert = "INSERT INTO post (userid,titulli,body,tags,category,photo)VALUES('$user_id','$p_titulli','$p_pershkrimi','$p_tags','$p_kategorit','$fileNameNew')";
                 mysqli_query($db, $insert);
                 if ($insert) {
                     $msg = "Postimi  u postua";
