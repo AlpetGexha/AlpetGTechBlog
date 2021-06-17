@@ -43,7 +43,7 @@ $row = $result->fetch_assoc();
 
                                     <div class="mx-auto" style="width: 140px;">
                                         <div class="d-flex justify-content-center align-items-center rounded">
-                                            <img class="rounded-circle" src="<?php echo "../assets/img/user/" . $row['image'] . " " ?>" alt="" width="140px" height="140px">
+                                            <img class="rounded-circle" src="<?php echo "../assets/img/user/" . $row['image'] . " " ?>" alt="" width="140px" height="140px" loading="lazy">
                                         </div>
                                     </div>
                                 </div>
@@ -150,25 +150,24 @@ $row = $result->fetch_assoc();
                             </form>
 
                             <?php get_modal(
-                                "profilphoto_" . $row["id"],
+                                "profilphoto_",
+                                $row["id"],
                                 " ",
                                 "Ndryshimi i fotos",
                                 '
-                                                <form class="img_profile" action="#" method="post" enctype="multipart/form-data">
                     <div class="container d-flex flex-wrap justify-content-center ">
                         
-                        <img class="rounded-circle m-auto" src="../assets/img/user/' . $row['image'] . ' " alt="" width="140px" height="140px">
+                        <img class="rounded-circle m-auto" src="../assets/img/user/' . $row['image'] . ' " alt="" width="140px" height="140px" loading="lazy">
                         <div class="row mt-3">
-                            <input class="form-control" id="formFile" type="file" name="image" required="">
-                            <input type="submit" class="btn btn-primary  mt-2" name="photo_update_submit">
+                            <input class="form-control mb-3" id="formFile" type="file" name="image" required="">
                         </div>
                     </div>
             
-            </form>
 
 ',
                                 "primary",
-                                "<style>.modal-footer{display: none;}</style>"
+                                "Ndrysho foton",
+                                "photo_update_submit"
                             )
                             ?>
 
