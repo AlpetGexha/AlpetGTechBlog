@@ -79,22 +79,24 @@ function get_kadegoirt($table, $table1)
     mysqli_close($db);
 }
 
-
 //trego te gjitha postimet(index.php)
 function get_post()
 {
     require("database/config.php");
-    $sql = "SELECT p.id,p.photo,p.date,p.views,p.titulli,p.body, u.username , p.userid FROM users u, post p WHERE p.userid = u.id ORDER BY id DESC ";
+    $sql = "SELECT p.id,p.photo,p.date,p.tags,p.views,p.titulli,p.body, u.username , p.userid FROM users u, post p WHERE p.userid = u.id ORDER BY id DESC  ";
     if ($result = mysqli_query($db, $sql)) {
         //Nese nuk ka postime 
         // ucfirst
         $rowcount = mysqli_num_rows($result);
 
         if ($rowcount == 0) {
-            echo 'Nuk ka Poste "width:350px;height:250px';
+            echo 'Nuk ka Poste';
         }
         foreach ($result as $key => $row) {
 
+
+            // Replace hashtags with links
+           
             echo '
                 <div class="col-sm-4 col-cart-body d-flex flex-wrap justify-content-center">
                     <div class="">
@@ -110,7 +112,9 @@ function get_post()
                                 <a" href="postim.php?id=' . $row['id'] . '"><p class="body-text"> ' . $row['body'] . ' </p></a>                                
                                 <a class="btn btn-success btn-submit" href="postim.php?id=' . $row['id'] . '">Meso m&euml; Shum&euml;</a>
                             </div>
+
                         </div>
+                        
                     </div>
                 </div>
             ';
@@ -170,10 +174,10 @@ function get_Aheader($title_bar)
 
 
 
-function get_modal($m_id, $path, $title, $text, $color, $btn_text)
+function get_modal($modal_name, $m_id, $path, $title, $text, $color, $btn_text, $name)
 {
     echo '
-        <div class="modal fade" id="modal_' . $m_id . '" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal fade" id="modal_'.$modal_name.'' . $m_id . '" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
             <div class="modal-header">
@@ -183,13 +187,16 @@ function get_modal($m_id, $path, $title, $text, $color, $btn_text)
                 </button>
             </div>
             <div class="modal-body">
+            <form action="' . $path . '" method="POST">
                 ' . $text . '
                 <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">JO</button>
-                <a  href="' . $path . '? id= ' . $m_id . '"class="btn btn-' . $color . '"id="delete_btn"  >' . $btn_text . '</a>
+                <button type="submit" class="btn btn-'.$color.'" id="submit" value="' . $m_id . '" name="'.$name.'">'.$btn_text.'</button> 
+                
                 </div>
             </div>
             </div>
+            </form>
         </div>
         </div>
         ';
@@ -203,7 +210,9 @@ if (isset($_POST['create_post_submit'])) {
     $p_titulli = mysqli_real_escape_string($db, $_POST['p_titulli']);
     $p_pershkrimi = mysqli_real_escape_string($db, $_POST['p_pershkrimi']);
     $p_kategorit = mysqli_real_escape_string($db, $_POST['p_kategorit']);
+    $p_tags = mysqli_real_escape_string($db, $_POST['p_tags']);
     $u_id = mysqli_real_escape_string($db, $_SESSION['username']);
+
 
     //Marrja e id nga useri 
     $sql = "SELECT id from users where username='$u_id'";
@@ -410,10 +419,57 @@ if (isset($_POST['photo_update_submit'])) {
     }
 }
 
+/* DELETE */
 
+if (isset($_POST['post_delete'])) {
+    $id = $_POST['post_delete'];
 
+    // fshirja e fotos 
+    $sql = "SELECT * from post where id = '$id'";
+    $results = mysqli_query($db, $sql);
+    $row = $results->fetch_assoc();
+    unlink('../../assets/img/post/' . $row['photo']);
+    mysqli_query($db, $sql);
 
+    //fshitja e postimit
+    $sql1 = "DELETE FROM post WHERE id='$id'";
+    $result = $db->query($sql1);
 
+    if ($result == TRUE) {
+        header('Location:admin/admin_post.php');
+    }
+}
+
+if (isset($_POST['sms_delete'])) {
+    $id = $_POST['sms_delete'];
+
+    $delete = "DELETE from kontakit where id='$id'";
+    mysqli_query($db, $delete);
+
+    if (!$delete == TRUE) {
+        $msg = "False";
+    } else {
+        header('Location: admin/admin_sms.php');
+        $msg = "True";
+    }
+}
+
+if (isset($_POST['category_delete'])) {
+    $id = $_POST['category_delete'];
+
+    $sql = "DELETE  FROM post_categories WHERE  id = '$id'";
+    $result = mysqli_query($db, $sql);
+
+    $delete = "DELETE from post where id='$id'";
+    $result = mysqli_query($db, $delete);
+
+    if (!$result == TRUE) {
+        $msg = "False";
+    } else {
+        header('Location: ../create_category.php');
+        $msg = "True";
+    }
+}
 
 //compressImage function
 function compressImage($source, $destination, $quality)

@@ -46,9 +46,9 @@ IamAdmin();
                         <td> ' . $i++ . ' </td> 
                         <td> ' . $ko_row['email'] . ' </td>
                        <td> <textarea class="" rows="2" cols="40" readonly=""> ' . $ko_row["sms"] . '</textarea></td>
-                        <td> <a class="btn btn-danger"  data-toggle="modal" data-target="#modal_' . $ko_row["id"] . ' ">Fshije</a> </td>
+                        <td> <a class="btn btn-danger"  data-toggle="modal" data-target="#modal_sms_' . $ko_row["id"] . ' ">Fshije</a> </td>
                         </tr>  ';
-                            get_modal($ko_row["id"], "delete/sms_delete.php", "Kujedes", "A deshironi ta fshini mesazhin","danger","PO! Fshije");
+                            get_modal("sms_",$ko_row["id"], "../server.php", "Kujedes", "A deshironi ta fshini mesazhin","danger","PO! Fshije","sms_delete");
                         }
                     }
 

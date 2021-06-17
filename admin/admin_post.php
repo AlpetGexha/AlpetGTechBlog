@@ -68,31 +68,22 @@ IamAdmin();
                        <td> <textarea class="" rows="2" cols="40" readonly=""> ' . $post_row["body"] . '</textarea></td>
                        <td> ' . $post_row['emri'] . ' </td> 
                        <td> ' .  date('j F, Y ,h:i:s A', strtotime($post_row['date'])) . ' </td> 
-                       <td> <a class="btn btn-danger"  data-toggle="modal" data-target="#modal_' . $post_row["id"] . ' ">Fshije</a> /
+                       <td> <a class="btn btn-danger"  data-toggle="modal" data-target="#modal_delete_' . $post_row["id"] . ' ">Fshije</a> /
                          <a class="btn btn-primary"  data-toggle="modal" data-target="#modal_edit_' . $post_row["id"] . ' ">Nrysho</a> </td>
                         </tr>  ';
                             //modal for delete
-                            get_modal($post_row["id"], "delete/post_delete.php", "Kujedes", "A deshironi ta fshini Postimin<b> " . $post_row['titulli'] . "</b>", "danger", "PO! Fshijeni");
+                            get_modal("delete_",$post_row["id"], "../server.php", "Kujedes", "A deshironi ta fshini Postimin<b> " . $post_row['titulli'] . "</b>", "danger", " PO! Fshijeni", "post_delete");
                             //modal for edit
-                            get_modal(
-                                "edit_" . $post_row["id"],
-                                "../server.php",
-                                "Ndryshimi i postinit",
+                            get_modal("edit_",$post_row["id"], "../server.php", "Ndryshimi i postinit",
                                 '
-                                <form action="../server.php" method="POST">
                                     <h6>Titulli</h6>
                                         <input type="text" class="form-control mt-2" name="post_titulli" autofocus="" required="" value="' . $post_row['titulli'] . '">
                                     <h6 class="mt-4">Teksti</h6>
                                     <textarea class="form-control" required="" placeholder="" id="floatingTextarea2" style="height: 220px" name="post_body"> ' . $post_row['body'] .
-                                    '</textarea>  
-                                    <div class="modal_end">
-                                    <button type="submit" class="btn btn-primary" id="submit" value="' . $post_row['id'] . '" name="post_update">Ndrysho</button>   
-                                    </div>         
-                                      
-                                    </form>                                                 
+                                '</textarea>       
+                                     <button type="submit" class="btn btn-primary" id="submit" value="' . $post_row['id'] . '" name="post_update">Ndrysho</button>                                                        
                             ',
-                                "primary",
-                                ' <style>.modal-footer{display: none;}</style> '
+                                "primary", ' Ndrysho Postimin ', "post_update"
                             );
                         }
                     }
