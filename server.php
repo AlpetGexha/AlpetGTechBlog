@@ -136,7 +136,7 @@ function get_post_id($table, $id1, $id2)
     if ($result = mysqli_query($db, $sql)) {
         $rowcount = mysqli_num_rows($result);
         if ($rowcount == 0) {
-            echo '<p class="null_result"> Nuk ka postime p&euml;r k&euml;t&euml; kategori</p>';
+            echo '<p class="null_result"> Nuk ka postime</p>';
         }
         foreach ($result as $categories => $row) {
             echo '
@@ -370,7 +370,7 @@ if (isset($_POST['post_update'])) {
     mysqli_query($db, $post_update);
 
 
-    header("Location:admin/admin_post.php");
+    header("Location:admin/create_post.php");
     if ($post_update) {
         $msg = "test";
     } else {
