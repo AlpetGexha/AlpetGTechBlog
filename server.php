@@ -303,7 +303,7 @@ function IamAdmin()
 if (isset($_POST['register_submit'])) {
     $emri = mysqli_real_escape_string($db, $_POST['reg_emri']);
     $mbiemri = mysqli_real_escape_string($db, $_POST['reg_mbiemri']);
-    $username = mysqli_real_escape_string($db, $_POST['reg_username']);
+    $username = strtolower(mysqli_real_escape_string($db, $_POST['reg_username']));
     $email = mysqli_real_escape_string($db, $_POST['reg_email']);
     $password = mysqli_real_escape_string($db, $_POST['reg_password']);
 
@@ -319,21 +319,20 @@ if (isset($_POST['register_submit'])) {
     if ($usernamelength < 3) {
         $msg = "Username-i duhet t&euml; jet&euml; s&euml; paku 3 karaktere";
     }
-    if (mysqli_num_rows($result_email) > 0) {
-        $msg = "Emaili ekziton tashm&euml;";
-    }
 
-    if (mysqli_num_rows($result_username) > 0) {
-        $msg = "P&euml;doruesi ekziton tashm&euml;";
+
+    if (mysqli_num_rows($result_username) > 0 || (mysqli_num_rows($result_email) > 0)  ) {
+        $msg = "P&euml;dorues ose Emaili ekziton tashm&euml;";
     } else {
         $password_hash = password_hash($password, PASSWORD_DEFAULT);
         $insert = "INSERT into users(emri,mbiemri,username,password,email,role)
         VALUES('$emri','$mbiemri','$username','$password_hash','$email','1')";
         mysqli_query($db, $insert);
+        if ($insert) {
+            $msg = "u krye $emri .\n .$mbiemri. \n .$username . \n  $email ";
+        }
     }
-    if ($insert) {
-        $msg = "u krye $emri \n $mbiemri \n $username  \n  $email "  ;
-    }
+
 }
 
 
