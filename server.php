@@ -97,7 +97,7 @@ function get_post()
 
 
             // Replace hashtags with links
-           
+
             echo '
                 <div class="col-sm-4 col-cart-body d-flex flex-wrap justify-content-center">
                     <div class="">
@@ -178,7 +178,7 @@ function get_Aheader($title_bar)
 function get_modal($modal_name, $m_id, $path, $title, $text, $color, $btn_text, $name)
 {
     echo '
-        <div class="modal fade" id="modal_'.$modal_name.'' . $m_id . '" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal fade" id="modal_' . $modal_name . '' . $m_id . '" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
             <div class="modal-header">
@@ -192,7 +192,7 @@ function get_modal($modal_name, $m_id, $path, $title, $text, $color, $btn_text, 
                 ' . $text . '
                 <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">JO</button>
-                <button type="submit" class="btn btn-'.$color.'" id="submit" value="' . $m_id . '" name="'.$name.'">'.$btn_text.'</button> 
+                <button type="submit" class="btn btn-' . $color . '" id="submit" value="' . $m_id . '" name="' . $name . '">' . $btn_text . '</button> 
                 
                 </div>
             </div>
@@ -298,9 +298,49 @@ function IamAdmin()
     }
 }
 
+
+//****************Regjistrimi ****************//
+if (isset($_POST['register_submit'])) {
+    $emri = mysqli_real_escape_string($db, $_POST['reg_emri']);
+    $mbiemri = mysqli_real_escape_string($db, $_POST['reg_mbiemri']);
+    $username = mysqli_real_escape_string($db, $_POST['reg_username']);
+    $email = mysqli_real_escape_string($db, $_POST['reg_email']);
+    $password = mysqli_real_escape_string($db, $_POST['reg_password']);
+
+
+    $reg_username = "SELECT * FROM users WHERE username='$username'";
+    $reg_email = "SELECT * FROM users WHERE email='$email'";
+    $result_username = mysqli_query($db, $reg_username);
+    $result_email = mysqli_query($db, $reg_email);
+
+
+    $usernamelength = strlen($username);
+
+    if ($usernamelength < 3) {
+        $msg = "Username-i duhet t&euml; jet&euml; s&euml; paku 3 karaktere";
+    }
+    if (mysqli_num_rows($result_email) > 0) {
+        $msg = "Emaili ekziton tashm&euml;";
+    }
+
+
+    if (mysqli_num_rows($result_username) > 0) {
+        $msg = "P&euml;doruesi ekziton tashm&euml;";
+    } else {
+        $password_hash = password_hash($password, PASSWORD_DEFAULT);
+        $insert = "INSERT into users(emri,mbiemri,username,password,email)
+        VALUES('$emri','$mbiemri','$username','$password_hash','$email')";
+        mysqli_query($db, $insert);
+    }
+    if ($insert) {
+        $msg = "u krye";
+    }
+}
+
+
 //**************** Login ****************//
 if (isset($_POST['login_submit'])) {
-    $username = mysqli_real_escape_string($db, $_POST['login_us']);
+    $username = strtolower(mysqli_real_escape_string($db, $_POST['login_us']));
     $password = mysqli_real_escape_string($db, $_POST['login_pw']);
 
     $sql =    "SELECT * from users where username = '$username'";
@@ -329,12 +369,12 @@ if (isset($_POST['post_update'])) {
     //updati nga edit.php 
     $post_update = "UPDATE post set titulli = '$titulli', body = '$body' where id=$id";
     mysqli_query($db, $post_update);
-   
+
 
     header("Location:admin/admin_post.php");
-    if($post_update){
-        $msg = "test";  
-    }else {
+    if ($post_update) {
+        $msg = "test";
+    } else {
         $msg = "jo";
     }
 }
@@ -410,7 +450,7 @@ if (isset($_POST['photo_update_submit'])) {
             if ($_FILES['image']['size'] < 10485760) {
                 //compressImage($_FILES["image"]["tmp_name"], $fileDestination, 60);
                 // Insert ne databases
-                
+
                 $sql2 = "UPDATE users SET image = '" . $fileNameNew . "' WHERE username = '" . $_SESSION['username'] . "'";
                 mysqli_query($db, $sql2);
                 if ($sql2) {
