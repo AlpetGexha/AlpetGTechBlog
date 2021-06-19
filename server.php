@@ -323,17 +323,16 @@ if (isset($_POST['register_submit'])) {
         $msg = "Emaili ekziton tashm&euml;";
     }
 
-
     if (mysqli_num_rows($result_username) > 0) {
         $msg = "P&euml;doruesi ekziton tashm&euml;";
     } else {
         $password_hash = password_hash($password, PASSWORD_DEFAULT);
-        $insert = "INSERT into users(emri,mbiemri,username,password,email)
-        VALUES('$emri','$mbiemri','$username','$password_hash','$email')";
+        $insert = "INSERT into users(emri,mbiemri,username,password,email,role)
+        VALUES('$emri','$mbiemri','$username','$password_hash','$email','1')";
         mysqli_query($db, $insert);
     }
     if ($insert) {
-        $msg = "u krye";
+        $msg = "u krye $emri \n $mbiemri \n $username  \n  $email "  ;
     }
 }
 
