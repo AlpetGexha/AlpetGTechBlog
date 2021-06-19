@@ -3,9 +3,9 @@ ob_start();
 include "server.php";
 include "database/config.php";
 
-// if (!($_SESSION['loggedIn']) && $_SESSION['loggedIn'] == true) {
-//     header("Location:index.php");
-// }
+if (isset($_SESSION['loggedIn']) && $_SESSION['loggedIn'] == true) {
+    header("Location:admin/admin_post.php");
+}
 
 ?>
 
