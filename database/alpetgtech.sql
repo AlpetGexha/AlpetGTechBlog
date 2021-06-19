@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 19, 2021 at 07:20 PM
+-- Generation Time: Jun 20, 2021 at 12:45 AM
 -- Server version: 10.4.17-MariaDB
 -- PHP Version: 8.0.2
 
@@ -120,7 +120,7 @@ CREATE TABLE `users` (
   `password` varchar(255) NOT NULL,
   `email` varchar(255) NOT NULL,
   `role` int(11) NOT NULL DEFAULT 0,
-  `image` varchar(500) NOT NULL DEFAULT 'nologouser',
+  `image` varchar(500) NOT NULL DEFAULT 'nologouser.jpg',
   `j_data` datetime NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -130,7 +130,8 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`id`, `emri`, `mbiemri`, `username`, `password`, `email`, `role`, `image`, `j_data`) VALUES
 (1, 'Alpet', 'Gexha', 'AlpetG', '$2y$10$kymJnHuonTJVKJDi5iLqDO12/q7TxatuMUYuRqkzMmPg6yvaGmHqC', 'agexha@gmail.com', 1, 'AlpetGBlogUser.60c38af32e7f04.43411620.jpg', '2021-06-05 01:53:35'),
-(17, 'Test', 'test', 'AlpetG2', '$2y$10$kymJnHuonTJVKJDi5iLqDO12/q7TxatuMUYuRqkzMmPg6yvaGmHqC', 'agexha10@gmail.com', 1, 'nologouser.jpg', '2021-06-05 01:13:22');
+(17, 'Test', 'test', 'AlpetG2', '$2y$10$kymJnHuonTJVKJDi5iLqDO12/q7TxatuMUYuRqkzMmPg6yvaGmHqC', 'agexha10@gmail.com', 1, 'nologouser.jpg', '2021-06-05 01:13:22'),
+(61, 'Alpet', 'Gexha', 'agexha2', '$2y$10$tzmwnlmdzOoC6rtWC1vpjeC1GIp60nzTwj6fPWqZka1fjulGUO2eW', 'agex3ha@gmail.com', 0, 'nologouser', '2021-06-19 22:05:57');
 
 --
 -- Indexes for dumped tables
@@ -195,13 +196,13 @@ ALTER TABLE `post_categories`
 -- AUTO_INCREMENT for table `roles`
 --
 ALTER TABLE `roles`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=62;
 
 --
 -- Constraints for dumped tables
@@ -212,12 +213,6 @@ ALTER TABLE `users`
 --
 ALTER TABLE `post`
   ADD CONSTRAINT `post_ibfk_1` FOREIGN KEY (`userid`) REFERENCES `users` (`id`);
-
---
--- Constraints for table `users`
---
-ALTER TABLE `users`
-  ADD CONSTRAINT `users_ibfk_1` FOREIGN KEY (`role`) REFERENCES `roles` (`id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
