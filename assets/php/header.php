@@ -43,7 +43,7 @@
             <div class="collapse navbar-collapse" id="collapsibleNavbar">
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link" href="index.php">Faqja Kryesore</a>
+                        <a class="nav-link" href="index">Faqja Kryesore</a>
                     </li>
 
                     <li class="nav-item dropdown">
@@ -55,16 +55,16 @@
                         </div>
 
                     <li class="nav-item">
-                        <a class="nav-link" href="about.php">Rreth nesh</a>
+                        <a class="nav-link" href="about">Rreth nesh</a>
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link" href="kontakti.php">Kontakti</a>
+                        <a class="nav-link" href="kontakti">Kontakti</a>
                     </li>
 
                 </ul>
                 <ul class="navbar-nav ml-auto">
-                    <form method="GET" action="search.php" class="d-flex">
+                    <form method="GET" action="search" class="d-flex">
                         <input class="form-control me-2" type="search" placeholder="K&euml;rkoni" name="search_post" required="" oninvalid="this.setCustomValidity('Shruani p&euml;r t&euml; k&euml;rkuar');" oninput="this.setCustomValidity('');">
                         <button class=" btn btn-outline-success" type="submit" name="submit">K&euml;rko</button>
                     </form>
