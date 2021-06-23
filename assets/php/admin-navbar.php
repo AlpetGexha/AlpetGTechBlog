@@ -75,7 +75,7 @@ $row_admin = $results_admin->fetch_assoc();
                             <a class="nav-link" href="../admin/create_category.php">
                                 Kategori
                             </a>
-                            <a class="nav-link" href="../register.php">
+                            <a class="nav-link" href="../admin/register.php">
                                 P&euml;rdorues
                             </a>
                         </nav>

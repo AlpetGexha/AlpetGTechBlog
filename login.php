@@ -16,7 +16,6 @@ echo "<body>";
 
 <div class="Login-Page">
     <div class="container mt-5 h-100">
-
         <div class="row justify-content-md-center h-100">
             <div class="card-wrapper">
                 <div class="card fat">
