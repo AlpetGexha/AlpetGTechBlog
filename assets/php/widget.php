@@ -15,7 +15,7 @@
                 </li>
 
                 <li>
-                    <a class="instagram" href="">
+                    <a class="instagram" href="https://www.instagram.com/alpet_gexha/" target="_blank">
                         <i class="fab fa-instagram"></i>
 
                         <span class="count"></span> instagram</a>
@@ -29,12 +29,13 @@
 
 
                 <li>
-                    <a class="github" href="">
+                    <a class="github" href="https://github.com/AlpetGexh" target="_blank">
                         <i class="fab fa-github"></i>
                         <span class="count"></span> github</a>
                 </li>
 
             </ul>
+            
         </div>
     </div>
 </div>
